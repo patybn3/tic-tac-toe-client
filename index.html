@@ -14,35 +14,68 @@
     <body>
       <nav class="navbar">
       <h1>Tic Tac Toe</h1>
+      <h3 id="login-alert"></h3>
     <section>
+      <form id="settings">
+        <fieldset>
+          <input type='submit' value='Settings'>
+        </fieldset>
+      </form>
     <form id="logout">
       <fieldset>
         <input type='submit' value='Log Out'>
       </fieldset>
     </form>
+    <form id="password-change">
+      <fieldset>
+        <legend id="change-pw-legend">Change Password</legend>
+        <p id="change-alert"></p>
+        <input type="password" placeholder="Old password" name="passwords[old]">
+        <input type="password" placeholder="New password" name="passwords[new]">
+        <input type='submit' value="Submit">
+      </fieldset>
+    </form>
   </section>
   </nav>
+
     <div class="container text-center">
       <div class="row">
-        <div class="col-4 col-lg-6 box">
+        <div class="col-12 col-lg-5 box">
         <form id='login'>
           <fieldset>
             <legend id="login-legend">Sign In!</legend>
-            <input type="email" placeholder="Enter Email">
-            <input type="password" placeholder="Enter Password">
+            <p id="login-fail"></p>
+            <input type="email" placeholder="Enter Email" name="credentials[email]">
+            <input type="password" placeholder="Enter Password" name="credentials[password]">
             <input type="submit" value="Submit">
+            <div class="row">
+          <div class="col-4 boxTwo" id="boxOne"></div>
+          <div class="col-4 boxTwo" id="boxTwo"></div>
+          <div class="col-4 boxTwo" id="boxThree"></div>
+          <div class="col-4 boxTwo" id="boxFour"></div>
+          <div class="col-4 boxTwo" id="boxFive"></div>
+          <div class="col-4 boxTwo" id="boxSix"></div>
+          <div class="col-4 boxTwo" id="boxSeven"></div>
+          <div class="col-4 boxTwo" id="boxEight"></div>
+          <div class="col-4 boxTwo" id="boxNine"></div>
+
+        </div>
+
           </fieldset>
-        </form></div>
-      <div class="col-4 col-lg-6 box">
+        </form>
+    </div>
+    <div class="col-0 col-lg-2"></div>
+      <div class="col-12 col-lg-5 box">
         <form id="signup">
             <legend id="signup-legend">Sign Up!</legend>
-            <input type="email" placeholder="Enter Email">
-            <input type="password" placeholder="Enter Password">
-            <input type="password" placeholder="Renter Password">
+            <p id="signup-alert"></p>
+            <input type="email" placeholder="Enter Email" name="credentials[email]">
+            <input type="password" placeholder="Enter Password" name="credentials[password]">
+            <input type="password" placeholder="Renter Password" name="credentials[password_confirmation]">
             <input type="submit" value="Submit">
         </form>
       </div>
-      </div>
     </div>
+  </div>
     </body>
 </html>

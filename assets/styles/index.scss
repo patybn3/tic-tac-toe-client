@@ -2,7 +2,7 @@
 @import 'variables';
 
 body {
-  background: gray;
+  background: $background-color-all;
 }
 
 .box {
@@ -11,6 +11,29 @@ body {
   border: 1px solid black;
   color: black;
   display: flex;
-  height: 350px;
+  height: 450px;
   justify-content: center;
+  padding: 20px;
+}
+
+.boxTwo {
+  align-items: left;
+  background-color: white;
+  border: 2px solid black;
+  color: black;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+}
+
+.success {
+  color: green;
+}
+
+.failure {
+color: red;
+}
+
+.login-sucess {
+  color: black;
 }
