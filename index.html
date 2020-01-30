@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Tic Tac Toe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,37 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <nav class="navbar">
+      <h1>Tic Tac Toe</h1>
+    <section>
+    <form id="logout">
+      <fieldset>
+        <input type='submit' value='Log Out'>
+      </fieldset>
+    </form>
+  </section>
+  </nav>
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-4 col-lg-6 box">
+        <form id='login'>
+          <fieldset>
+            <legend id="login-legend">Sign In!</legend>
+            <input type="email" placeholder="Enter Email">
+            <input type="password" placeholder="Enter Password">
+            <input type="submit" value="Submit">
+          </fieldset>
+        </form></div>
+      <div class="col-4 col-lg-6 box">
+        <form id="signup">
+            <legend id="signup-legend">Sign Up!</legend>
+            <input type="email" placeholder="Enter Email">
+            <input type="password" placeholder="Enter Password">
+            <input type="password" placeholder="Renter Password">
+            <input type="submit" value="Submit">
+        </form>
+      </div>
+      </div>
+    </div>
     </body>
 </html>
