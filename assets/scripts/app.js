@@ -13,6 +13,5 @@ $(() => {
   $('#signup').on('submit', eventsPage.onSignUp)
   $('#login').on('submit', eventsPage.onLogIn)
   $('#password-change').on('submit', eventsPage.changePw)
-  $('#settings').on('submit', eventsPage.settings)
   // your JS code goes here
 })

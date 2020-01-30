@@ -16,6 +16,8 @@ const logInSuccess = function (response) {
   $('#login-alert').text('Welcome to Tic Tac Toe!')
   $('#login').trigger('reset')
   $('#login-alert').addClass('login-success')
+  store.user = response.user
+  $('#password-change').show()
 }
 
 const logInFail = function (response) {
@@ -36,19 +38,11 @@ const changePwFail = function (response) {
   $('#change-alert').addClass('failure')
 }
 
-const onSettingsSuccess = function (response) {
-  $('#settings').trigger('reset')
-  store.user = response.user
-  $('#password-change').show()
-  $('#settings').hide()
-}
-
 module.exports = {
   signUpSuccess,
   signUpFail,
   logInSuccess,
   logInFail,
   changePwSuccess,
-  changePwFail,
-  onSettingsSuccess
+  changePwFail
 }

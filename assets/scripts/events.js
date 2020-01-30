@@ -38,17 +38,8 @@ const changePw = event => {
     .catch(ui.changePwFail)
 }
 
-const settings = event => {
-  event.preventDefault()
-
-  api.onSettings()
-    .then(ui.onSettingsSuccess)
-    .catch(ui.onSettingsFailure)
-}
-
 module.exports = {
   onSignUp,
   onLogIn,
-  changePw,
-  settings
+  changePw
 }

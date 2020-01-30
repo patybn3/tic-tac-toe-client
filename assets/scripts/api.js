@@ -29,19 +29,8 @@ const onChange = data => {
   })
 }
 
-const onSettings = data => {
-  return $.ajax({
-    url: config.apiUrl + '/settings',
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
-
 module.exports = {
   signUp,
   logIn,
-  onChange,
-  onSettings
+  onChange
 }
