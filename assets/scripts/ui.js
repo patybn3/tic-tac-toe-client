@@ -17,7 +17,12 @@ const logInSuccess = function (response) {
   $('#login').trigger('reset')
   $('#login-alert').addClass('login-success')
   store.user = response.user // add to make it work
+  $('#tictac').show()
+  $('#tray').show()
   $('#password-change').show()
+  $('#logout').show()
+  $('#login').hide()
+  $('#signup').hide()
 }
 
 const logInFail = function (response) {
@@ -38,11 +43,36 @@ const changePwFail = function (response) {
   $('#change-alert').addClass('failure')
 }
 
+const logOutSuccess = function (response) {
+  $('#logout-alert').text('You Have Signed Out!')
+  $('#logout').trigger('reset')
+  $('#logout-alert').addClass('success')
+  $('#logout').hide()
+  $('#password-change').hide()
+  $('#tray').hide()
+  $('#tictac').hide()
+  $('#signup').show()
+  $('#login').show()
+  store.user = null
+
+  setTimeout(() => {
+    $('#login-alert').fadeOut()
+    $('#logout-alert').fadeOut()
+  }, 1000)
+}
+
+const logOutFail = function (response) {
+  $('#logout-alert').text('Try Again!')
+  $('#logout-alert').addClass('failure')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFail,
   logInSuccess,
   logInFail,
   changePwSuccess,
-  changePwFail
+  changePwFail,
+  logOutSuccess,
+  logOutFail
 }

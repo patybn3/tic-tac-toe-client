@@ -38,8 +38,17 @@ const changePw = event => {
     .catch(ui.changePwFail)
 }
 
+const onLogOut = event => {
+  event.preventDefault()
+
+  api.logingOut()
+    .then(ui.logOutSuccess)
+    .catch(ui.logOutFail)
+}
+
 module.exports = {
   onSignUp,
   onLogIn,
-  changePw
+  changePw,
+  onLogOut
 }

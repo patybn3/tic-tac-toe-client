@@ -29,8 +29,19 @@ const onChange = data => {
   })
 }
 
+const logingOut = data => {
+  return $.ajax({
+    url: config.apiUrl + '/sign-out',
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   logIn,
-  onChange
+  onChange,
+  logingOut
 }

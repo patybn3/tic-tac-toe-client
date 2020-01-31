@@ -9,9 +9,13 @@ const eventsPage = require('./events')
 
 $(() => {
   $('#password-change').hide()
+  $('#tray').hide()
+  $('#logout').hide()
+  $('#tictac').hide()
 
   $('#signup').on('submit', eventsPage.onSignUp)
   $('#login').on('submit', eventsPage.onLogIn)
   $('#password-change').on('submit', eventsPage.changePw)
+  $('#logout').on('submit', eventsPage.onLogOut)
   // your JS code goes here
 })
