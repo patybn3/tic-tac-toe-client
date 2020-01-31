@@ -16,7 +16,7 @@ const logInSuccess = function (response) {
   $('#login-alert').text('Welcome to Tic Tac Toe!')
   $('#login').trigger('reset')
   $('#login-alert').addClass('login-success')
-  store.user = response.user
+  store.user = response.user // add to make it work
   $('#password-change').show()
 }
 
