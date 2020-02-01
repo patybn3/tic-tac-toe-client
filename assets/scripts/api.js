@@ -38,11 +38,8 @@ const logingOut = data => {
     }
   })
 }
-// game starts here
-//
-//
-//
-const startGame = data => {
+
+const settingsGame = data => {
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'POST',
@@ -55,51 +52,10 @@ const startGame = data => {
   })
 }
 
-const showGamesPlayed = data => {
-  return $.ajax({
-    url: config.apiUrl + '/games',
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
-
-const showGames = data => {
-  return $.ajax({
-    url: config.apiUrl + '/games/' + store.user.id,
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
-
-const game = data => {
-  return $.ajax({
-    url: config.apiUrl + '/games/' + store.game.id,
-    method: 'PATCH',
-    headers: { Authorization: 'Token token=' + store.user.token },
-    data: {
-      'game': {
-        'cell': {
-          'index': $(event.target).data('id'),
-          'value': $(event.target).text('')
-        },
-        'over': store.game.over
-      }
-    }
-  }
-  )
-}
-
 module.exports = {
   signUp,
   logIn,
   onChange,
   logingOut,
-  startGame,
-  game,
-  showGamesPlayed,
-  showGames
+  settingsGame
 }

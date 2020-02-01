@@ -8,18 +8,8 @@
 const eventsPage = require('./events')
 
 $(() => {
-  $('#password-change').hide()
-  $('#tray').hide()
-  $('#logout').hide()
-  $('#tictac').hide()
-  $('#scores').hide()
-  $('#settings').hide()
-
-  $('#settings').on('click', eventsPage.onSettings)
-  $('#signup').on('submit', eventsPage.onSignUp)
-  $('#login').on('submit', eventsPage.onLogIn)
-  $('#password-change').on('submit', eventsPage.changePw)
-  $('#logout').on('submit', eventsPage.onLogOut)
+  $('.blocks').on('click', eventsPage.gameLogic)
+  $('#start-game').on('click', eventsPage.onStart)
   // your JS code goes here
 })
 
