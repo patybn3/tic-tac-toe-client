@@ -16,30 +16,21 @@
       <h1>Tic Tac Toe</h1>
       <h3 id="login-alert"></h3>
       <p id="logout-alert"></p>
-    <form id="password-change">
-      <fieldset>
-        <legend id="change-pw-legend">Change Password</legend>
-        <p id="change-alert"></p>
-        <p id="old">Old Password</p>
-        <input type="password" placeholder="Old password" name="passwords[old]">
-        <p id="new">New Password</p>
-        <input type="password" placeholder="New password" name="passwords[new]">
-        <input type='submit' value="Submit">
-      </fieldset>
-    </form>
+
     <form id="logout">
       <fieldset>
         <input type='submit' value='Log Out'>
       </fieldset>
     </form>
   </nav>
+
 <h5 id="tictac">Let's Play!</h5><br>
     <div class="container text-center">
       <div class="row">
         <div class="col-12 col-lg-5 box">
         <form id='login'>
           <fieldset>
-            <legend id="login-legend">Sign In!</legend>
+            <legend class="legend">Sign In!</legend>
             <p id="login-fail"></p>
             <p class="email">Email</p>
             <input type="email" placeholder="Enter Email" name="credentials[email]">
@@ -50,22 +41,29 @@
           </fieldset>
         </form>
             <div class="row" id="tray">
-          <div class="col-4 boxTwo" id="0"></div>
-          <div class="col-4 boxTwo" id="1"></div>
-          <div class="col-4 boxTwo" id="2"></div>
-          <div class="col-4 boxTwo" id="3"></div>
-          <div class="col-4 boxTwo" id="4"></div>
-          <div class="col-4 boxTwo" id="5"></div>
-          <div class="col-4 boxTwo" id="6"></div>
-          <div class="col-4 boxTwo" id="7"></div>
-          <div class="col-4 boxTwo" id="8"></div>
+          <div class="col-4 boxTwo blocks" data-id="0"></div>
+          <div class="col-4 boxTwo blocks" data-id="1"></div>
+          <div class="col-4 boxTwo blocks" data-id="2"></div>
+          <div class="col-4 boxTwo blocks" data-id="3"></div>
+          <div class="col-4 boxTwo blocks" data-id="4"></div>
+          <div class="col-4 boxTwo blocks" data-id="5"></div>
+          <div class="col-4 boxTwo blocks" data-id="6"></div>
+          <div class="col-4 boxTwo blocks" data-id="7"></div>
+          <div class="col-4 boxTwo blocks" data-id="8"></div>
 
-        </div>
+          <form id="start">
+        <fieldset>
+          <input type="submit" value="New Game" id="start-button">
+        </fieldset>
+      </form>
+      </div>
     </div>
+
+
     <div class="col-0 col-lg-2"></div>
       <div class="col-12 col-lg-5 box">
         <form id="signup">
-            <legend id="signup-legend">Sign Up!</legend>
+            <legend class="legend">Sign Up!</legend>
             <p id="signup-alert"></p>
             <p class="email">Email</p>
             <input type="email" placeholder="Enter Email" name="credentials[email]">
@@ -75,8 +73,38 @@
             <input type="password" placeholder="Renter Password" name="credentials[password_confirmation]">
             <input type="submit" value="Submit">
         </form>
+        <div class ="endofgame">
+          <div class="text"></div>
+        </div>
+        <form id="settings">
+          <input type='submit' value="Settings">
+        </form>
+          <form id="password-change">
+            <fieldset>
+              <legend id="change-pw-legend">Change Password</legend>
+              <p id="change-alert"></p>
+              <p id="old">Old Password</p>
+              <input type="password" placeholder="Old password" name="passwords[old]">
+              <p id="new">New Password</p>
+              <input type="password" placeholder="New password" name="passwords[new]">
+              <input type='submit' value="Submit">
+            </fieldset>
+          </form>
+          <table id='scores' class="table table-hover col-4 text-center">
+            <thead>
+              <tr>
+                <th scope="col">Total Games</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td id='totalgames'></td>
+              </tr>
+            </tbody>
+          </table>
       </div>
-    </div>
-  </div>
+      <footer>
+        some footer
+      </footer>
     </body>
 </html>

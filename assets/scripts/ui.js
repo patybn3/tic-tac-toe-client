@@ -18,11 +18,12 @@ const logInSuccess = function (response) {
   $('#login-alert').addClass('login-success')
   store.user = response.user // add to make it work
   $('#tictac').show()
+  $('#scores').show()
   $('#tray').show()
-  $('#password-change').show()
   $('#logout').show()
   $('#login').hide()
   $('#signup').hide()
+  $('#settings').show()
 }
 
 const logInFail = function (response) {
@@ -35,6 +36,16 @@ const changePwSuccess = function (response) {
   $('#change-alert').text('You Have Changed Your Password')
   $('#password-change').trigger('reset')
   $('#change-alert').addClass('success')
+
+  setTimeout(() => {
+    $('#password-change').fadeOut()
+    $('change-alert').fadeOut()
+  }, 2000)
+
+  setTimeout(() => {
+    $('#settings').fadeIn()
+    $('#scores').fadeIn()
+  }, 3000)
 }
 
 const changePwFail = function (response) {
@@ -48,11 +59,12 @@ const logOutSuccess = function (response) {
   $('#logout').trigger('reset')
   $('#logout-alert').addClass('success')
   $('#logout').hide()
-  $('#password-change').hide()
   $('#tray').hide()
   $('#tictac').hide()
   $('#signup').show()
   $('#login').show()
+  $('#settings').hide()
+  $('#scores').hide()
   store.user = null
 
   setTimeout(() => {
@@ -64,6 +76,33 @@ const logOutSuccess = function (response) {
 const logOutFail = function (response) {
   $('#logout-alert').text('Try Again!')
   $('#logout-alert').addClass('failure')
+
+  setTimeout(() => {
+    $('#logout-alert').fadeOut()
+  }, 2000)
+}
+
+const settingsSuccess = function (response) {
+  $('#password-change').show()
+  $('#settings').hide()
+  $('#scores').hide()
+}
+
+const settingsFail = function (response) {
+  $('#signup-alert').text('Unable to Access Settings. Please Try Again')
+  $('#signup').trigger('reset')
+  $('#signup-alert').addClass('failure')
+}
+// game starts here
+//
+//
+//
+const startSuccess = function (response) {
+  $('#tictac').text('Ready to Play!')
+}
+
+const startFail = function (response) {
+  $('#tictac').text('The game failed to start')
 }
 
 module.exports = {
@@ -74,5 +113,9 @@ module.exports = {
   changePwSuccess,
   changePwFail,
   logOutSuccess,
-  logOutFail
+  logOutFail,
+  startSuccess,
+  startFail,
+  settingsSuccess,
+  settingsFail
 }
