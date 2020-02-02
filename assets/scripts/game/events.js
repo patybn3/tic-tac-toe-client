@@ -1,5 +1,5 @@
 // events page
-// const getForm = require('../../../lib/get-form-fields')
+const getForm = require('../../../lib/get-form-fields')
 // go back to scrips count one, back to assets, two, back to tic-tac-toe main folder, three, enter lib, name file
 const api = require('./api')
 const ui = require('./ui')
@@ -11,18 +11,15 @@ const ui = require('./ui')
 // const gameUnits = ['', '', '', '', '', '', '', '', '']
 // store.turn = 0
 const onNewGame = event => {
-  api.newGame()
+  event.preventDefault()
+
+  const form = event.target
+  const data = getForm(form)
+
+  api.newGame(data)
     .then(ui.newSuccess)
     .catch(ui.newFail)
 }
-
-// const numberOfGames = event => {
-//   event.preventDefault()
-//
-//   api.showGamesPlayed()
-//     .then(ui.numberOfGamesSuccess)
-//     .catch(ui.numberOfGamesFail)
-// }
 
 const gameArr = ['', '', '', '', '', '', '', '', '']
 gameArr[0] = document.getElementById('box0')
@@ -35,7 +32,7 @@ gameArr[6] = document.getElementById('box6')
 gameArr[7] = document.getElementById('box7')
 gameArr[8] = document.getElementById('box8')
 
-const gameLogic = function () {
+const gameLogic = function (gameArr) {
   // eight possible ways to win
   if (gameArr[0].innerHTML !== '' && gameArr[0].innerHTML === gameArr[1].innerHTML && gameArr[0].innerHTML === gameArr[2].innerHTML) {
     // from box 0, 1, 2
@@ -85,3 +82,10 @@ module.exports = {
   gameLogic,
   onNewGame
 }
+// const numberOfGames = event => {
+//   event.preventDefault()
+//
+//   api.showGamesPlayed()
+//     .then(ui.numberOfGamesSuccess)
+//     .catch(ui.numberOfGamesFail)
+// }

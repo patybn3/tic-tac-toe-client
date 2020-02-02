@@ -23,6 +23,7 @@ const logInSuccess = function (response) {
   $('#logout').show()
   $('#login').hide()
   $('#signup').hide()
+  $('#start-game').show()
   // $('#settings').show()
   $('#password-change').show()
   $('#lookup-game').show()
@@ -69,6 +70,7 @@ const logOutSuccess = function (response) {
   $('#scores').hide()
   $('#lookup-game').hide()
   $('#password-change').hide()
+  $('#start-game').hide()
   store.user = null
 
   setTimeout(() => {

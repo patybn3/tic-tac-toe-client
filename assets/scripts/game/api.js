@@ -17,17 +17,6 @@ const showGamesPlayed = data => {
   })
 }
 
-// const onLookupGame = (data) => {
-//   const getId = data.game.id
-//   return $.ajax({
-//     url: config.apiUrl + '/games/' + getId,
-//     method: 'GET',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
-
 const newGame = data => {
   return $.ajax({
     url: config.apiUrl + '/games',
@@ -64,3 +53,13 @@ module.exports = {
   showGamesPlayed,
   newGame
 }
+// const onLookupGame = (data) => {
+//   const getId = data.game.id
+//   return $.ajax({
+//     url: config.apiUrl + '/games/' + getId,
+//     method: 'GET',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     }
+//   })
+// }

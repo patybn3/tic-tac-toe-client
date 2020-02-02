@@ -1,6 +1,9 @@
 
 const newSuccess = function (response) {
   $('#tictac').text('Ready to Play!')
+  $('#start-game').trigger('reset')
+  $('#tray').show()
+  $('#start-game').show()
 }
 
 const newFail = function (response) {

@@ -3,24 +3,29 @@
 
 body {
   background: $background-color-all;
+  font-style: $page-font;
 }
 
+.background-image {
+  display: float;
+}
 .box {
   align-items: left;
-  background-color: white;
-  border: 1px solid black;
-  color: black;
+  background-color: $colors-of-boxes;
+  border: 1px solid $colors-of-boxes;
+  color: $general-text-color;
   display: flex;
   height: 450px;
   justify-content: center;
   padding: 80px;
+  border-radius: 10px;
 }
 
 .boxTwo {
   align-items: left;
-  background-color: white;
-  border: 2px solid black;
-  color: black;
+  background-color: $colors-of-boxes;
+  border: 2px solid $general-text-color;
+  color: $general-text-color;
   display: flex;
   height: 100px;
   justify-content: center;
@@ -63,17 +68,18 @@ body {
 }
 
 .success {
-  color: green;
+  color: $success-message;
 }
 
 .failure {
-color: red;
+color: $failure-message;
 }
 
 .login-sucess {
-  color: black;
+  color: $general-text-color;
 }
 
 .navbar {
-  background: white;
+  background: $colors-of-boxes;
+  height: 115px;
 }

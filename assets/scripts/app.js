@@ -7,6 +7,8 @@
 // require('./example')
 const eventsPage = require('./events')
 
+const eventsPageGame = require('./game/events')
+
 $(() => {
   $('#password-change').hide()
   $('#tray').hide()
@@ -15,12 +17,17 @@ $(() => {
   $('#scores').hide()
   // $('#settings').hide()
   $('#lookup-game').hide()
+  $('#start-game').hide()
 
   // $('#settings').on('click', eventsPage.onSettings)
   $('#signup').on('submit', eventsPage.onSignUp)
   $('#login').on('submit', eventsPage.onLogIn)
   $('#password-change').on('submit', eventsPage.changePw)
   $('#logout').on('submit', eventsPage.onLogOut)
+  // game starts here
+
+  $('.boxTwo').on('click', eventsPageGame.gameLogic)
+  $('#start-game').on('click', eventsPageGame.onNewGame)
   // your JS code goes here
 })
 
