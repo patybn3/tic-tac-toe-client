@@ -13,9 +13,10 @@ $(() => {
   $('#logout').hide()
   $('#tictac').hide()
   $('#scores').hide()
-  $('#settings').hide()
+  // $('#settings').hide()
+  $('#lookup-game').hide()
 
-  $('#settings').on('click', eventsPage.onSettings)
+  // $('#settings').on('click', eventsPage.onSettings)
   $('#signup').on('submit', eventsPage.onSignUp)
   $('#login').on('submit', eventsPage.onLogIn)
   $('#password-change').on('submit', eventsPage.changePw)

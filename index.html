@@ -73,12 +73,9 @@
             <input type="password" placeholder="Renter Password" name="credentials[password_confirmation]">
             <input type="submit" value="Submit">
         </form>
-        <div class ="endofgame">
-          <div class="text"></div>
-        </div>
-        <form id="settings">
+        <!-- <form id="settings">
           <input type='submit' value="Settings">
-        </form>
+        </form> -->
           <form id="password-change">
             <fieldset>
               <legend id="change-pw-legend">Change Password</legend>
@@ -93,12 +90,15 @@
           <table id='scores' class="table table-hover col-4 text-center">
             <thead>
               <tr>
-                <th scope="col">Total Games</th>
+                <th scope="col">Total Games Played</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td id='totalgames'></td>
+              </tr>
+              <tr>
+                <td id='games'></td>
               </tr>
             </tbody>
           </table>

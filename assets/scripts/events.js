@@ -46,18 +46,18 @@ const onLogOut = event => {
     .catch(ui.logOutFail)
 }
 
-const onSettings = event => {
-  event.preventDefault()
-
-  api.settingsGame()
-    .then(ui.settingsSuccess)
-    .catch(ui.settingsFail)
-}
+// const onSettings = event => {
+//   event.preventDefault()
+//
+//   api.settingsGame()
+//     .then(ui.settingsSuccess)
+//     .catch(ui.settingsFail)
+// }
 
 module.exports = {
   onSignUp,
   onLogIn,
   changePw,
-  onLogOut,
-  onSettings
+  onLogOut
+  // onSettings
 }

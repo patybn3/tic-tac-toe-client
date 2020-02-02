@@ -23,7 +23,9 @@ const logInSuccess = function (response) {
   $('#logout').show()
   $('#login').hide()
   $('#signup').hide()
-  $('#settings').show()
+  // $('#settings').show()
+  $('#password-change').show()
+  $('#lookup-game').show()
 }
 
 const logInFail = function (response) {
@@ -42,10 +44,10 @@ const changePwSuccess = function (response) {
     $('change-alert').fadeOut()
   }, 2000)
 
-  setTimeout(() => {
-    $('#settings').fadeIn()
-    $('#scores').fadeIn()
-  }, 3000)
+  // setTimeout(() => {
+  //   $('#settings').fadeIn()
+  //   $('#scores').fadeIn()
+  // }, 3000)
 }
 
 const changePwFail = function (response) {
@@ -65,6 +67,8 @@ const logOutSuccess = function (response) {
   $('#login').show()
   $('#settings').hide()
   $('#scores').hide()
+  $('#lookup-game').hide()
+  $('#password-change').hide()
   store.user = null
 
   setTimeout(() => {
@@ -82,28 +86,17 @@ const logOutFail = function (response) {
   }, 2000)
 }
 
-const settingsSuccess = function (response) {
-  $('#password-change').show()
-  $('#settings').hide()
-  $('#scores').hide()
-}
-
-const settingsFail = function (response) {
-  $('#signup-alert').text('Unable to Access Settings. Please Try Again')
-  $('#signup').trigger('reset')
-  $('#signup-alert').addClass('failure')
-}
-// game starts here
+// const settingsSuccess = function (response) {
+//   $('#password-change').show()
+//   $('#settings').hide()
+//   $('#scores').hide()
+// }
 //
-//
-//
-const startSuccess = function (response) {
-  $('#tictac').text('Ready to Play!')
-}
-
-const startFail = function (response) {
-  $('#tictac').text('The game failed to start')
-}
+// const settingsFail = function (response) {
+//   $('#signup-alert').text('Unable to Access Settings. Please Try Again')
+//   $('#signup').trigger('reset')
+//   $('#signup-alert').addClass('failure')
+// }
 
 module.exports = {
   signUpSuccess,
@@ -113,9 +106,7 @@ module.exports = {
   changePwSuccess,
   changePwFail,
   logOutSuccess,
-  logOutFail,
-  startSuccess,
-  startFail,
-  settingsSuccess,
-  settingsFail
+  logOutFail
+  // settingsSuccess,
+  // settingsFail
 }

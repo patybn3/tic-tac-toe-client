@@ -8,8 +8,8 @@
 const eventsPage = require('./events')
 
 $(() => {
-  $('.blocks').on('click', eventsPage.gameLogic)
-  $('#start-game').on('click', eventsPage.onStart)
+  $('#tray').on('click', eventsPage.gameLogic)
+
   // your JS code goes here
 })
 
