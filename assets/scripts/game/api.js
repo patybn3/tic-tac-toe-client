@@ -1,6 +1,6 @@
-const config = require('../config')
+const config = require('./../config')
 
-const store = require('../store')
+const store = require('./../store')
 
 // game starts here
 //
@@ -30,7 +30,7 @@ const newGame = data => {
   })
 }
 
-const game = (number, letter, over) => {
+const game = () => {
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
@@ -38,10 +38,10 @@ const game = (number, letter, over) => {
     data: {
       'game': {
         'cell': {
-          'index': number,
-          'value': letter
+          'index': store.game.index,
+          'value': store.game.value
         },
-        'over': over
+        'over': store.game.over
       }
     }
   }

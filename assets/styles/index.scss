@@ -7,12 +7,14 @@ body {
 }
 
 #logo {
-  width: 150px;
   height: 100px;
+  width: 150px;
 }
+
 .background-image {
   display: float;
 }
+
 .box {
   align-items: left;
   background-color: $colors-of-boxes;
@@ -35,39 +37,39 @@ body {
   justify-content: center;
 }
 
-#box0 {
+[data-id ='box0'] {
+  border-left: 0;
   border-top: 0;
+}
+
+[data-id='box1'] {
+  border-top: 0;
+}
+
+[data-id='box2'] {
+  border-right: 0;
+  border-top: 0;
+}
+
+[data-id='box6'] {
+  border-bottom: 0;
   border-left: 0;
 }
 
-#box1 {
-  border-top: 0;
-}
-
-#box2 {
-  border-top: 0;
-  border-right: 0;
-}
-
-#box6 {
-  border-bottom: 0;
-  border-left: 0;
-}
-
-#box7 {
+[data-id='box7'] {
   border-bottom: 0;
 }
 
-#box8 {
+[data-id='box8'] {
   border-bottom: 0;
   border-right: 0;
 }
 
-#box5 {
+[data-id='box5'] {
   border-right: 0;
 }
 
-#box3 {
+[data-id='box3'] {
   border-left: 0;
 }
 
@@ -76,7 +78,7 @@ body {
 }
 
 .failure {
-color: $failure-message;
+  color: $failure-message;
 }
 
 .login-sucess {
@@ -85,8 +87,8 @@ color: $failure-message;
 
 .navbar {
   background: $colors-of-boxes;
-  margin: auto;
   height: 150px;
+  margin: auto;
 }
 
 .border {

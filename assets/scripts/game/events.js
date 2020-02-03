@@ -3,13 +3,10 @@ const getForm = require('../../../lib/get-form-fields')
 // go back to scrips count one, back to assets, two, back to tic-tac-toe main folder, three, enter lib, name file
 const api = require('./api')
 const ui = require('./ui')
+const store = require('./../store')
 
 // game starts here
-//
-//
-// create empty array to represent game board units
-// const gameUnits = ['', '', '', '', '', '', '', '', '']
-// store.turn = 0
+
 const onNewGame = event => {
   event.preventDefault()
 
@@ -21,71 +18,55 @@ const onNewGame = event => {
     .catch(ui.newFail)
 }
 
-const gameArr = ['', '', '', '', '', '', '', '', '']
-gameArr[0] = document.getElementById('box0')
-gameArr[1] = document.getElementById('box1')
-gameArr[2] = document.getElementById('box2')
-gameArr[3] = document.getElementById('box3')
-gameArr[4] = document.getElementById('box4')
-gameArr[5] = document.getElementById('box5')
-gameArr[6] = document.getElementById('box6')
-gameArr[7] = document.getElementById('box7')
-gameArr[8] = document.getElementById('box8')
+const getGames = event => {
+  event.preventDefault()
 
-const gameLogic = function (gameArr) {
-  // eight possible ways to win
-  if (gameArr[0].innerHTML !== '' && gameArr[0].innerHTML === gameArr[1].innerHTML && gameArr[0].innerHTML === gameArr[2].innerHTML) {
-    // from box 0, 1, 2
-    console.log('You won')
-  } else if (gameArr[3].innerHTML !== '' && gameArr[3].innerHTML === gameArr[4].innerHTML && gameArr[3].innerHTML === gameArr[5].innerHTML) {
-    // from box 3, 4, 5
-    console.log('You won')
-  } else if (gameArr[6].innerHTML !== '' && gameArr[6].innerHTML === gameArr[7].innerHTML && gameArr[6].innerHTML === gameArr[8].innerHTML) {
-    // from box 6, 7, 8
-    console.log('You won')
-  } else if (gameArr[0].innerHTML !== '' && gameArr[0].innerHTML === gameArr[3].innerHTML && gameArr[0].innerHTML === gameArr[6].innerHTML) {
-    // from box 0, 3, 6
-    console.log('You won')
-  } else if (gameArr[1].innerHTML !== '' && gameArr[1].innerHTML === gameArr[4].innerHTML && gameArr[1].innerHTML === gameArr[7].innerHTML) {
-    // from box 1, 4, 7
-    console.log('You won')
-  } else if (gameArr[2].innerHTML !== '' && gameArr[2].innerHTML === gameArr[5].innerHTML && gameArr[2].innerHTML === gameArr[8].innerHTML) {
-    // from box 2, 5, 8
-    console.log('You won')
-  } else if (gameArr[0].innerHTML !== '' && gameArr[0].innerHTML === gameArr[4].innerHTML && gameArr[0].innerHTML === gameArr[8].innerHTML) {
-    // from box 0, 4, 8
-    console.log('You won')
-  } else if (gameArr[2].innerHTML !== '' && gameArr[2].innerHTML === gameArr[4].innerHTML && gameArr[2].innerHTML === gameArr[6].innerHTML) {
-    // from box 2, 4, 6
-    console.log('You won')
-  }
+  api.showGamesPlayed()
+    .then(ui.getGamesSuccess)
+    .catch(ui.getGamesFail)
 }
 
-const gameBoard = document.querySelectorAll('#tray')
-let value = 0
+const gameLogic = event => {
+  // let x = 'X'
+  // let o = 'O'
+  let playerOne = 0
 
-for (let i = 0; i < gameBoard.length; i++) {
-  gameBoard[i].onclick = function () {
-    if (value % 2 === 0) {
-      this.innerHTML = 'X'
-      gameLogic()
-      value += 1
-    } else {
-      this.innerHTML = 'O'
-      gameLogic()
-      value += 1
-    }
+  if ($(event.target).text() === '' && playerOne % 2 === 0 && store.game.over === false) {
+    $(event.target).text('X')
+    playerOne = 1
+  } else if ($(event.target).text() === '' && playerOne % 2 !== 0 && store.game.over === false) {
+    $(event.target).text('o')
+    playerOne = 0
   }
+  api.game(event)
+    .then(ui.onGameSuccess)
+    .catch(ui.onGameFail)
 }
+
+//
+// const gameArr = ['', '', '', '', '', '', '', '', '']
+// gameArr[0] = $(event.target).data('box0')
+// gameArr[1] = $(event.target).data('box1')
+// gameArr[2] = $(event.target).data('box2')
+// gameArr[3] = $(event.target).data('box3')
+// gameArr[4] = $(event.target).data('box4')
+// gameArr[5] = $(event.target).data('box5')
+// gameArr[6] = $(event.target).data('box6')
+// gameArr[7] = $(event.target).data('box7')
+// gameArr[8] = $(event.target).data('box8')
+// // eight possible ways to win
+// if ((gameArr[0] !== '' && gameArr[0] === gameArr[1] && gameArr[0] === gameArr[2]) ||
+//     (gameArr[3] !== '' && gameArr[3] === gameArr[4] && gameArr[3] === gameArr[5]) ||
+//     (gameArr[6] !== '' && gameArr[6] === gameArr[7] && gameArr[6] === gameArr[8]) ||
+//     (gameArr[0] !== '' && gameArr[0] === gameArr[3] && gameArr[0] === gameArr[6]) ||
+//     (gameArr[1] !== '' && gameArr[1] === gameArr[4] && gameArr[1] === gameArr[7]) ||
+//     (gameArr[2] !== '' && gameArr[2] === gameArr[5] && gameArr[2] === gameArr[8]) ||
+//     (gameArr[0] !== '' && gameArr[0] === gameArr[4] && gameArr[0] === gameArr[8]) ||
+//     (gameArr[2] !== '' && gameArr[2] === gameArr[4] && gameArr[2] === gameArr[6])) {
+// from box 0, 1, 8
 
 module.exports = {
   gameLogic,
-  onNewGame
+  onNewGame,
+  getGames
 }
-// const numberOfGames = event => {
-//   event.preventDefault()
-//
-//   api.showGamesPlayed()
-//     .then(ui.numberOfGamesSuccess)
-//     .catch(ui.numberOfGamesFail)
-// }

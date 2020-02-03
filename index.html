@@ -29,11 +29,9 @@
     <div class="row">
       <div class="col-6">
 <h5 id="tictac">Let's Play!</h5><br>
-<form id="start-game">
-<fieldset>
-<input type="submit" value="New Game">
-</fieldset>
-</form>
+<button type="button" id="start-game">New Game</button>
+<button class="btn btn-game" id="gamenumber">Number of Games</button>
+              <p id="number-message"></p>
 </div>
 </div>
 </div>
@@ -56,21 +54,21 @@
         </form>
         <!-- game board -->
             <div class="row" id="tray">
-          <div class="col-4 boxTwo" id="box0"></div>
-          <div class="col-4 boxTwo" id="box1"></div>
-          <div class="col-4 boxTwo" id="box2"></div>
-          <div class="col-4 boxTwo" id="box3"></div>
-          <div class="col-4 boxTwo" id="box4"></div>
-          <div class="col-4 boxTwo" id="box5"></div>
-          <div class="col-4 boxTwo" id="box6"></div>
-          <div class="col-4 boxTwo" id="box7"></div>
-          <div class="col-4 boxTwo" id="box8"></div>
+          <div class="col-4 boxTwo" data-id="box0"></div>
+          <div class="col-4 boxTwo" data-id="box1"></div>
+          <div class="col-4 boxTwo" data-id="box2"></div>
+          <div class="col-4 boxTwo" data-id="box3"></div>
+          <div class="col-4 boxTwo" data-id="box4"></div>
+          <div class="col-4 boxTwo" data-id="box5"></div>
+          <div class="col-4 boxTwo" data-id="box6"></div>
+          <div class="col-4 boxTwo" data-id="box7"></div>
+          <div class="col-4 boxTwo" data-id="box8"></div>
 
       </div>
     </div>
 
     <div class="col-0 col-lg-2">
-      <table id='scores' class="table table-hover col-4 text-center">
+      <!-- <table id='scores' class="table table-hover col-4 text-center">
         <thead>
           <tr>
             <th scope="col">Total Games Played</th>
@@ -80,11 +78,8 @@
           <tr>
             <td id='totalgames'></td>
           </tr>
-          <tr>
-            <td id='games'></td>
-          </tr>
         </tbody>
-      </table>
+      </table> -->
     </div>
       <div class="col-12 col-lg-5 box">
         <form id="signup">

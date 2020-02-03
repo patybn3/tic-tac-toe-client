@@ -26,10 +26,20 @@ $(() => {
   $('#logout').on('submit', eventsPage.onLogOut)
   // game starts here
 
-  $('.boxTwo').on('click', eventsPageGame.gameLogic)
+  $('#tray').on('click', eventsPageGame.gameLogic)
   $('#start-game').on('click', eventsPageGame.onNewGame)
+  $('#gamenumber').on('click', eventsPageGame.getGames)
   // your JS code goes here
 })
+
+// $(() => {
+//   let currentPlayer = 'X'
+//
+//   $('#tray').on('click', function (gameLogic) {
+//     $(event.target).text(currentPlayer)
+//     currentPlayer = currentPlayer === 'O' ? currentPlayer = 'X' : currentPlayer = 'O'
+//   })
+// })
 
 // $('#0').on('click', eventsPage.gameBoard)
 // $('#1').on('click', eventsPage.gameBoard)
