@@ -3,9 +3,13 @@
 
 body {
   background: $background-color-all;
-  font-style: $page-font;
+  font-family: $page-font;
 }
 
+#logo {
+  width: 150px;
+  height: 100px;
+}
 .background-image {
   display: float;
 }
@@ -81,5 +85,18 @@ color: $failure-message;
 
 .navbar {
   background: $colors-of-boxes;
-  height: 115px;
+  margin: auto;
+  height: 150px;
+}
+
+.border {
+  margin: 20px;
+}
+
+#logout, #logout-alert {
+  padding-right: 120px;
+}
+
+h1 {
+  padding-left: 120px;
 }
