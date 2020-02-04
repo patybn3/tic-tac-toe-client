@@ -31,11 +31,11 @@ $(() => {
   $('#gamenumber').on('click', eventsPageGame.getGames)
   // your JS code goes here
 })
-
+//
 // $(() => {
 //   let currentPlayer = 'X'
-//
-//   $('#tray').on('click', function (gameLogic) {
+
+//   $('#tray').on('click', function (event) {
 //     $(event.target).text(currentPlayer)
 //     currentPlayer = currentPlayer === 'O' ? currentPlayer = 'X' : currentPlayer = 'O'
 //   })

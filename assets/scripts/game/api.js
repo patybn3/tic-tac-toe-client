@@ -1,6 +1,6 @@
-const config = require('./../config')
+const config = require('../config')
 
-const store = require('./../store')
+const store = require('../store')
 
 // game starts here
 //
@@ -30,26 +30,17 @@ const newGame = data => {
   })
 }
 
-const game = () => {
+const gameApi = event => {
   return $.ajax({
-    url: config.apiUrl + '/games/' + store.game.id,
+    url: config.apiUrl + '/games/' + store.user.id,
     method: 'PATCH',
     headers: { Authorization: 'Token token=' + store.user.token },
-    data: {
-      'game': {
-        'cell': {
-          'index': store.game.index,
-          'value': store.game.value
-        },
-        'over': store.game.over
-      }
-    }
-  }
-  )
+    data: data
+  })
 }
 
 module.exports = {
-  game,
+  gameApi,
   showGamesPlayed,
   newGame
 }

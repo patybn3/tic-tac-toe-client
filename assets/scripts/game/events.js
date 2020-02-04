@@ -25,24 +25,53 @@ const getGames = event => {
     .then(ui.getGamesSuccess)
     .catch(ui.getGamesFail)
 }
+//
+//
+
+let currentPlayer = 'X'
 
 const gameLogic = event => {
-  // let x = 'X'
-  // let o = 'O'
-  let playerOne = 0
+  event.preventDefault()// prevents refreshing of game ??
 
-  if ($(event.target).text() === '' && playerOne % 2 === 0 && store.game.over === false) {
-    $(event.target).text('X')
-    playerOne = 1
-  } else if ($(event.target).text() === '' && playerOne % 2 !== 0 && store.game.over === false) {
-    $(event.target).text('o')
-    playerOne = 0
+  $(event.target).text(currentPlayer)
+  currentPlayer = currentPlayer === 'O' ? currentPlayer = 'X' : currentPlayer = 'O'
+}
+
+const eachBox = event => {
+  const indexNumber = event.target.id
+  const valueLetter = gameLogic()
+  const data = {
+    'game': {
+      'cell': {
+        'index': indexNumber,
+        'value': valueLetter
+      },
+      'over': false
+    }
   }
-  api.game(event)
+
+  api.gameApi(data)
     .then(ui.onGameSuccess)
     .catch(ui.onGameFail)
 }
 
+module.exports = {
+  gameLogic,
+  onNewGame,
+  getGames,
+  eachBox
+}
+
+// let x = 'X'
+// let o = 'O'
+
+// if ($(event.target).text() === '' && playerOne % 2 === 0 && store.game.over === false) {
+//   $(event.target).text('X')
+//   playerOne = 1
+// } else if ($(event.target).text() === '' && playerOne % 2 !== 0 && store.game.over === false) {
+//   $(event.target).text('o')
+//   playerOne = 0
+// }
 //
 // const gameArr = ['', '', '', '', '', '', '', '', '']
 // gameArr[0] = $(event.target).data('box0')
@@ -64,9 +93,3 @@ const gameLogic = event => {
 //     (gameArr[0] !== '' && gameArr[0] === gameArr[4] && gameArr[0] === gameArr[8]) ||
 //     (gameArr[2] !== '' && gameArr[2] === gameArr[4] && gameArr[2] === gameArr[6])) {
 // from box 0, 1, 8
-
-module.exports = {
-  gameLogic,
-  onNewGame,
-  getGames
-}
