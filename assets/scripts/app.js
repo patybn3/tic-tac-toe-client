@@ -15,9 +15,11 @@ $(() => {
   $('#logout').hide()
   $('#tictac').hide()
   $('#scores').hide()
+  $('#gamenumber').hide()
   // $('#settings').hide()
   $('#lookup-game').hide()
   $('#start-game').hide()
+  $('#click-on-newGame').hide()
 
   // $('#settings').on('click', eventsPage.onSettings)
   $('#signup').on('submit', eventsPage.onSignUp)

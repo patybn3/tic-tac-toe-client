@@ -1,20 +1,23 @@
 const store = require('../store')
 
 const newSuccess = (data) => {
+  console.log('newSuccess')
   $('#tictac').html('')
   store.turn = 1
-  store.gameID = data.game.id
-  store.cells = data.game.cells
+  store.game = data.game
+  console.log(store.game)
   store.player = 'x'
-  store.over = data.game.over
-  $('#tray').fadeIn('fast')
+  // store.over = data.game.over
+  $('#tray').fadeIn('slow')
   $('.boxTwo').empty()
   $('#tictac').text(`It's ${store.player}'s turn!`)
-  $('#game-number').text(`Your current game ID: ${store.gameID}`)
+  $('#game-number').text(`Your current game ID: ${store.game.id}`)
   $('#game-number').fadeIn('fast')
+  $('#click-on-newGame').hide()
 }
 
 const newFail = function (response) {
+  console.log('newFail')
   $('#tictac').text('The game failed to start')
 }
 
@@ -28,6 +31,7 @@ const getGamesFail = function (response) {
 
 const onGameSuccess = function (response) {
   const gameArr = store.game.cells
+  console.log(gameArr)
   for (let i = 0; i < gameArr.length; i++) {
     if ((gameArr[0] !== '' && gameArr[0] === gameArr[1] && gameArr[0] === gameArr[2]) ||
       (gameArr[0] !== '' && gameArr[0] === gameArr[4] && gameArr[0] === gameArr[8]) ||
@@ -47,10 +51,14 @@ const onGameSuccess = function (response) {
   }
 }
 
+const eachSuccess = function () {
+  onGameSuccess()
+}
 module.exports = {
   newSuccess,
   newFail,
   getGamesSuccess,
   getGamesFail,
-  onGameSuccess
+  onGameSuccess,
+  eachSuccess
 }

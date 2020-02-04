@@ -19,7 +19,7 @@ const logInSuccess = function (response) {
   store.user = response.user // add to make it work
   $('#tictac').show()
   $('#scores').show()
-  $('#tray').show()
+  $('#click-on-newGame').show()
   $('#logout').show()
   $('#login').hide()
   $('#signup').hide()
@@ -27,6 +27,7 @@ const logInSuccess = function (response) {
   // $('#settings').show()
   $('#password-change').show()
   $('#lookup-game').show()
+  $('#gamenumber').show()
 }
 
 const logInFail = function (response) {
@@ -71,6 +72,8 @@ const logOutSuccess = function (response) {
   $('#lookup-game').hide()
   $('#password-change').hide()
   $('#start-game').hide()
+  $('#gamenumber').hide()
+  $('#click-on-newGame').hide()
   store.user = null
 
   setTimeout(() => {

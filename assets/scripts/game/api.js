@@ -31,18 +31,27 @@ const newGame = data => {
 }
 
 const gameApi = event => {
+  console.log(store)
   return $.ajax({
     url: config.apiUrl + '/games/' + store.user.id,
     method: 'PATCH',
     headers: { Authorization: 'Token token=' + store.user.token },
-    data: data
+    data: {
+      game: {
+        cell: {
+          index: store.game.index,
+          value: store.game.value
+        },
+        over: store.game.over
+      }
+    }
   })
 }
 
 module.exports = {
   gameApi,
   showGamesPlayed,
-  newGame,
+  newGame
 }
 // const onLookupGame = (data) => {
 //   const getId = data.game.id
