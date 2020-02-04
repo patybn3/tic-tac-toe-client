@@ -55,11 +55,22 @@ const eachBox = event => {
     .catch(ui.onGameFail)
 }
 
+const loopBoxes = event => {
+  for (let i = 0; i < 9; i++) {
+
+
+    api.gameEnd(event)
+      .then(ui.onGameSuccess)
+      .catch(ui.onGameFail)
+  }
+}
+
 module.exports = {
   gameLogic,
   onNewGame,
   getGames,
-  eachBox
+  eachBox,
+  loopBoxes
 }
 
 // let x = 'X'

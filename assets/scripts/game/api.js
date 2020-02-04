@@ -42,7 +42,7 @@ const gameApi = event => {
 module.exports = {
   gameApi,
   showGamesPlayed,
-  newGame
+  newGame,
 }
 // const onLookupGame = (data) => {
 //   const getId = data.game.id
