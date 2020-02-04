@@ -1,5 +1,7 @@
 const store = require('../store')
 
+// const events = require('./events')
+
 const newSuccess = (data) => {
   console.log('newSuccess')
   $('#tictac').html('')
@@ -30,35 +32,19 @@ const getGamesFail = function (response) {
 }
 
 const onGameSuccess = function (response) {
-  const gameArr = store.game.cells
-  console.log(gameArr)
-  for (let i = 0; i < gameArr.length; i++) {
-    if ((gameArr[0] !== '' && gameArr[0] === gameArr[1] && gameArr[0] === gameArr[2]) ||
-      (gameArr[0] !== '' && gameArr[0] === gameArr[4] && gameArr[0] === gameArr[8]) ||
-      (gameArr[0] !== '' && gameArr[0] === gameArr[3] && gameArr[0] === gameArr[6])) {
-      store.game.over = true
-      $('#tictac').text(gameArr[0] + 'Wins!')
-    } else if ((gameArr[1] !== '' && gameArr[1] === gameArr[4] && gameArr[1] === gameArr[7]) ||
-      (gameArr[2] !== '' && gameArr[2] === gameArr[4] && gameArr[2] === gameArr[6]) ||
-      (gameArr[3] !== '' && gameArr[3] === gameArr[4] && gameArr[3] === gameArr[5])) {
-      store.game.over = true
-      $('#tictac').text(gameArr[2] + 'Wins')
-    } else if ((gameArr[2] !== '' && gameArr[2] === gameArr[5] && gameArr[2] === gameArr[8]) ||
-    (gameArr[6] !== '' && gameArr[6] === gameArr[7] && gameArr[6] === gameArr[8])) {
-      store.game.over = true
-      $('#tictac').text(gameArr[6] + 'Wins')
-    }
-  }
+  $('#tray').hide()
+  $('#click-on-newGame').show()
 }
 
-const eachSuccess = function () {
-  onGameSuccess()
-}
+// const onGetGamesSuccess = function (response) {
+//
+// }
+
 module.exports = {
   newSuccess,
   newFail,
   getGamesSuccess,
   getGamesFail,
-  onGameSuccess,
-  eachSuccess
+  onGameSuccess
+  // onGetGamesSuccess
 }

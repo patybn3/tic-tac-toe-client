@@ -28,7 +28,7 @@ $(() => {
   $('#logout').on('submit', eventsPage.onLogOut)
   // game starts here
 
-  $('#tray').on('click', eventsPageGame.gameLogic)
+  $('#tray').on('click', eventsPageGame.plugLetters)
   $('#start-game').on('click', eventsPageGame.onNewGame)
   $('#gamenumber').on('click', eventsPageGame.getGames)
   // your JS code goes here
