@@ -19,26 +19,26 @@ const onNewGame = event => {
     .catch(ui.newFail)
 }
 
-store.currentPlayer = 'X'
+// store.currentPlayer = 'X'
 
 const plugLetters = event => {
   event.preventDefault()// prevents refreshing of game ??
 
   $(event.target).text(store.currentPlayer)
-  store.currentPlayer = store.currentPlayer === 'O' ? store.currentPlayer = 'X' : store.currentPlayer = 'O'
-
+  // store.currentPlayer = store.currentPlayer === 'O' ? store.currentPlayer = 'X' : store.currentPlayer = 'O'
+  const gameArr = store.game.cells
   // store.cells = gameArr
   const index = $(event.target).attr('data-id')
   gameArr[index] = store.currentPlayer
-  console.log(gameArr)
+  // console.log(gameArr)
   gameLogic()
-  if (store.currentPlayer === 'X') {
-    store.player = 'o'
-    $('#tictac').text('Its X turn!')
-  } else if (store.currentPlayer === 'O') {
-    store.player = 'x'
-    $('#tictac').text('Its O turn!')
-  }
+  // if (store.currentPlayer === 'X') {
+  //   store.currentPlayer = 'X'
+  //   $('#tictac').text('Its X turn!')
+  // } else if (store.currentPlayer === 'O') {
+  //   store.currentPlayer = 'O'
+  //   $('#tictac').text('Its O turn!')
+  // }
   const data = {
     'game': {
       'cell': {
@@ -48,6 +48,7 @@ const plugLetters = event => {
       'over': store.game.over
     }
   }
+  store.currentPlayer = store.currentPlayer === 'O' ? store.currentPlayer = 'X' : store.currentPlayer = 'O'
 
   api.gameApi(data)
     .then(ui.onGameSuccess)
@@ -64,9 +65,14 @@ const plugLetters = event => {
 //     .then(ui.onGetGamesSuccess)
 //     .catch(ui.onGetGamesFail)
 // }
-const gameArr = ['', '', '', '', '', '', '', '', '']
+// const gameArr = store.game.cells
+
+const checkEmpty = function (num) {
+  return num === 'X' || num === 'O'
+}
 
 const gameLogic = event => {
+  const gameArr = store.game.cells
   // const gameArr = store.game.cells
   // console.log(gameArr)
   if (gameArr[0] && gameArr[0] === gameArr[1] && gameArr[0] === gameArr[2] && gameArr[0] !== '') {
@@ -81,29 +87,32 @@ const gameLogic = event => {
     store.game.over = true
     $('#tictac').text(store.currentPlayer + ' Wins!')
     // console.log('winner')
-  } else if (gameArr[1] && gameArr[1] === gameArr[4] && gameArr[1] === gameArr[7] && gameArr[0] !== '') {
+  } else if (gameArr[1] && gameArr[1] === gameArr[4] && gameArr[1] === gameArr[7] && gameArr[1] !== '') {
     store.game.over = true
     $('#tictac').text(store.currentPlayer + ' Wins!')
     // console.log('winner')
-  } else if (gameArr[2] && gameArr[2] === gameArr[4] && gameArr[2] === gameArr[6] && gameArr[0] !== '') {
+  } else if (gameArr[2] && gameArr[2] === gameArr[4] && gameArr[2] === gameArr[6] && gameArr[2] !== '') {
     store.game.over = true
     $('#tictac').text(store.currentPlayer + ' Wins!')
     // console.log('winner')
-  } else if (gameArr[3] && gameArr[3] === gameArr[4] && gameArr[3] === gameArr[5] && gameArr[0] !== '') {
+  } else if (gameArr[3] && gameArr[3] === gameArr[4] && gameArr[3] === gameArr[5] && gameArr[3] !== '') {
     store.game.over = true
     $('#tictac').text(store.currentPlayer + ' Wins!')
     // console.log('winner')
-  } else if (gameArr[2] && gameArr[2] === gameArr[5] && gameArr[2] === gameArr[8] && gameArr[0] !== '') {
+  } else if (gameArr[2] && gameArr[2] === gameArr[5] && gameArr[2] === gameArr[8] && gameArr[2] !== '') {
     store.game.over = true
     $('#tictac').text(store.currentPlayer + ' Wins!')
     // console.log('winner')
-  } else if (gameArr[6] && gameArr[6] === gameArr[7] && gameArr[6] === gameArr[8] && gameArr[0] !== '') {
+  } else if (gameArr[6] && gameArr[6] === gameArr[7] && gameArr[6] === gameArr[8] && gameArr[6] !== '') {
     store.game.over = true
     $('#tictac').text(store.currentPlayer + ' Wins!')
     // console.log('winner')
-  } else {
+  } else if (gameArr.every(checkEmpty)) {
     store.game.over = true
     $('#tictac').text('Game Over: Its a tie!')
+  } else {
+    store.game.over = false
+    $('#tictac').text(`It's ${store.currentPlayer === 'O' ? 'X' : 'O'}'s turn!`)
   }
 }
 

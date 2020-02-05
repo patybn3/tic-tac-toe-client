@@ -3,16 +3,16 @@ const store = require('../store')
 // const events = require('./events')
 
 const newSuccess = (data) => {
-  console.log('newSuccess')
+  // console.log('newSuccess')
   $('#tictac').html('')
-  store.turn = 1
+  // store.turn = 1
   store.game = data.game
-  console.log(store.game)
-  store.player = 'x'
+  // console.log(store.game)
+  store.currentPlayer = 'X'
   // store.over = data.game.over
   $('#tray').fadeIn('slow')
   $('.boxTwo').empty()
-  $('#tictac').text(`It's ${store.player}'s turn!`)
+  $('#tictac').text(`It's ${store.currentPlayer}'s turn!`)
   $('#game-number').text(`Your current game ID: ${store.game.id}`)
   $('#game-number').fadeIn('fast')
   $('#click-on-newGame').hide()
