@@ -1,4 +1,8 @@
-User Story
+[Tic-tac-toe Wireframe 1](./TicTacToePg1.jpeg) ![Tic-tac-toe Wireframe 1](./TicTacToePg1.jpeg)
+[Tic-tac-toe Wireframe 2](./TicTacToen2.jpeg) ![Tic-tac-toe Wireframe 2](./TicTacToen2.jpeg)
+
+
+User Story:
 
 As a user I would like to have an easy interface
 As a user I would like to be able to sign in
