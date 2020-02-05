@@ -32,10 +32,12 @@ const getGamesFail = function (response) {
 }
 
 const onGameSuccess = function (response) {
-  $('#tray').hide()
-  $('#click-on-newGame').show()
+  console.log(response)
+  // $('#tictac').text(store.currentPlayer + ' Wins!')
 }
 
+const endSuccess = function (response) {
+}
 // const onGetGamesSuccess = function (response) {
 //
 // }
@@ -45,6 +47,7 @@ module.exports = {
   newFail,
   getGamesSuccess,
   getGamesFail,
-  onGameSuccess
+  onGameSuccess,
+  endSuccess
   // onGetGamesSuccess
 }

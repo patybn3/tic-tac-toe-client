@@ -30,20 +30,25 @@ const newGame = data => {
   })
 }
 
-const gameApi = event => {
+const gameApi = data => {
   console.log(store)
   return $.ajax({
-    url: config.apiUrl + '/games/' + store.user.id,
+    url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
     headers: { Authorization: 'Token token=' + store.user.token },
+    data: data
+  })
+}
+
+const endGame = data => {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
     data: {
-      game: {
-        cell: {
-          index: store.game.index,
-          value: store.game.value
-        },
-        over: store.game.over
-      }
+
     }
   })
 }
@@ -51,7 +56,8 @@ const gameApi = event => {
 module.exports = {
   gameApi,
   showGamesPlayed,
-  newGame
+  newGame,
+  endGame
 }
 // const onLookupGame = (data) => {
 //   const getId = data.game.id
