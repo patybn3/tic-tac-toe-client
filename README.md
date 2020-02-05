@@ -4,19 +4,21 @@
 
 User Story:
 
-As a user I would like to have an easy interface
-As a user I would like to be able to sign in
-As a user I would like to be able to sign out
-As a user I would like to be able to sign up
-As a user I would like to keep a record or my scores
-As a user I would like to be able to change my password
-As a user I would like to have a gamer nickname
-As a user I would like to start or restart the game
-As a user I would like to be able to choose between X and O
-As a user I would like to play online with other users
-As a user I would like to play offline
-As a user I would like to be notified of errors
-As a user I would like to be notified if I win or lose
+//As a user I would like to have an easy interface.
+
+//As a user I would like to be able to sign in.
+
+//As a user I would like to be able to sign out.
+//As a user I would like to be able to sign up.
+//As a user I would like to keep a record or my scores.
+//As a user I would like to be able to change my password.
+//As a user I would like to have a gamer nickname.
+//As a user I would like to start or restart the game.
+//As a user I would like to be able to choose between X and O.
+//As a user I would like to play online with other users.
+//As a user I would like to play offline.
+//As a user I would like to be notified of errors.
+//As a user I would like to be notified if I win or lose.
 
 // toolbar to be achieved in HTML with boostrap
 // settings and logout on nav bar to pop up after user logs in
