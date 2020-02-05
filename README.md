@@ -9,40 +9,74 @@ User Story:
 //As a user I would like to be able to sign in.
 
 //As a user I would like to be able to sign out.
+
 //As a user I would like to be able to sign up.
+
 //As a user I would like to keep a record or my scores.
-//As a user I would like to be able to change my password.
+
+//As a user I would like to be able to change my password
+
 //As a user I would like to have a gamer nickname.
+
 //As a user I would like to start or restart the game.
+
 //As a user I would like to be able to choose between X and O.
+
 //As a user I would like to play online with other users.
+
 //As a user I would like to play offline.
+
 //As a user I would like to be notified of errors.
+
 //As a user I would like to be notified if I win or lose.
 
+
 // toolbar to be achieved in HTML with boostrap
+
 // settings and logout on nav bar to pop up after user logs in
+
 // hide if user logs out
+
 // settings "redirects" to change password and nickname
+
 // settings and logout buttons to be added on HTML and styled on CSS
+
 // initial view will have two boxes, to be added with boostrap
+
 // box on the left will have the log in inputs
+
 // box on the right will have the sign up inputs
+
 // notification letting user know if they signed up successfully (or not)
+
 // notification letting user know they have logged in successfully (or not)
+
 // display "Welcome + user" once user logs in
+
 // direct user to log in after sign up
+
 // after user signs in, box on the left will become tic tac toe game board
+
 // box on the right will keep track of both player's scores
+
 // list games won, games lost, total games
+
 // attempt button or boostrap for tic tac toe board
+
 // game logic record user 1 as X or O
+
 // possible default
+
 // attempt to make it an option
+
 // record user 2 as the other option
+
 //  attempt to add user 3 as computer for "offline" game (game with computer)
+
 // list 9 boxes on an array
+
 // possible if statement for computer gam
+
 
 
 Set Up
