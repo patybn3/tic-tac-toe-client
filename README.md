@@ -1,130 +1,116 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+User Story
+
+As a user I would like to have an easy interface
+As a user I would like to be able to sign in
+As a user I would like to be able to sign out
+As a user I would like to be able to sign up
+As a user I would like to keep a record or my scores
+As a user I would like to be able to change my password
+As a user I would like to have a gamer nickname
+As a user I would like to start or restart the game
+As a user I would like to be able to choose between X and O
+As a user I would like to play online with other users
+As a user I would like to play offline
+As a user I would like to be notified of errors
+As a user I would like to be notified if I win or lose
+
+// toolbar to be achieved in HTML with boostrap
+// settings and logout on nav bar to pop up after user logs in
+// hide if user logs out
+// settings "redirects" to change password and nickname
+// settings and logout buttons to be added on HTML and styled on CSS
+// initial view will have two boxes, to be added with boostrap
+// box on the left will have the log in inputs
+// box on the right will have the sign up inputs
+// notification letting user know if they signed up successfully (or not)
+// notification letting user know they have logged in successfully (or not)
+// display "Welcome + user" once user logs in
+// direct user to log in after sign up
+// after user signs in, box on the left will become tic tac toe game board
+// box on the right will keep track of both player's scores
+// list games won, games lost, total games
+// attempt button or boostrap for tic tac toe board
+// game logic record user 1 as X or O
+// possible default
+// attempt to make it an option
+// record user 2 as the other option
+//  attempt to add user 3 as computer for "offline" game (game with computer)
+// list 9 boxes on an array
+// possible if statement for computer gam
 
 
-# browser-template
-
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
-
-## Installation
-
-1. [Download](../../archive/master.zip) this template.
-    - **Do Not Fork And Clone**
-    - Click the "Clone or Download" button and select "Download Zip".
-1. Move to the `wdi/projects` directory, then unzip the template directory with
-    `unzip /Users/<user-name>/Downloads/browser-template-master.zip`.
-1. Rename the template directory from `browser-template-master` to
-    `<project-name>-client`.
-1. Empty [`README.md`](README.md) and fill with your own content.
-1. Replace all instances of `ga-wdi-boston.browser-template` with the name of
-    your project.
-    - You can search for all instances of text in Atom by pressing
-    `commant + shift + f` on Mac or `ctrl + shift + f` on WSL.
-1. Move into the new project and `git init`.
-1. Add all of the files in your project with the command `git add --all`.
-      - **Note: This is the only time you should run this command!**
-1. Commit all of your files with the command `git commit`.
-      - Your commit title should read `Initial commit`.
-1. Install dependencies with `npm install`.
-1. Create a new repository on [github.com](https://github.com),
-    _not GitHub Enterprise_.
-1. Name the new repository with the same name used on Step 3.
-1. Follow the instructions on your new repository's setup page. For details on
-   how to push to Github, refer to the section on Github entitled "…or push an existing
-   repository from the command line." Further documentation can be found [here](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/).
-
-## Structure
-
-### Scripts
-
-Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
-The "manifest" or entry-point is
-[`assets/scripts/app.js`](assets/scripts/app.js). In general, only
-application initialization goes in this file. It's normal for developers to
-start putting all code in this file, but encourage them to break out different
-responsibilities and use the `require` syntax put references where they're
-needed.
-
-### Config
-
-Developers should set `apiUrls.production` and `apiUrls.development` in
-[`assets/scripts/config.js`](assets/scripts/config.js).  With
-`apiUrls` set, developers may rely on `apiUrl` as the base for API
-URLs.
-
-### Styles
-
-Developers should store styles in [`assets/styles`](assets/styles) and load them
-from [`assets/styles/index.scss`](assets/styles/index.scss). Bootstrap version 3 is
-included in this template.
-
-### Forms and Using `getFormFields`
-
-Developers should use [getFormFields](get-form-fields.md) to retrieve form data
-to send to an API.
-
-### Deployment
-
-To deploy a browser-template based SPA, run `grunt deploy`.
-
-## Adding Images
-
-To add images to your project, you must store them in the `public` directory.
-To use the image in HTML or CSS, write the path to the image like this:
-
-```html
-<img src="public/cat.jpg">
-```
-or
-```css
-#my-cool-div {
-  background-image: url('public/cat.jpg')
-}
-```
-
-Note that there's no `./` or `/` in front of `public/filename.jpg`.
-
-## Adding Fonts
-
-To add custom fonts to your app, you can either use a CDN like Google Fonts, or
-you can download the fonts and save them in the `public` directory. If you use
-the former method, follow the directions on the website providing the fonts.
-
-For local fonts, put the files in `public`, and then import and use them in a
-`.scss` file like this:
-
-```scss
-@font-face {
-  font-family: 'Nature Beauty';
-  src: url('public/Nature-Beauty.ttf') format('truetype');
-}
-
-.element-with-custom-font {
-  font-family: 'Nature Beauty';
-}
-```
-
-## Tasks
-
-Developers should run these often!
-
-- `grunt nag` or just `grunt`: runs code quality analysis tools on your code
-    and complains
-- `grunt make-standard`: reformats all your code in the JavaScript Standard Style
-- `grunt <server|serve|s>`: generates bundles, watches, and livereloads
-- `grunt build`: place bundled styles and scripts where `index.html` can find
-    them
-- `grunt deploy`: builds and deploys master branch
-
-
-## Additional Resources
-
-- [Modern Javascript Explained for Dinosaurs](https://medium.com/@peterxjang/modern-javascript-explained-for-dinosaurs-f695e9747b70)
-- [Making Sense of Front End Build Tools](https://medium.freecodecamp.org/making-sense-of-front-end-build-tools-3a1b3a87043b)
-
-## [License](LICENSE)
-
-1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-1. All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+Set Up
+1.	 Download Browser Template
+2.	 Create a Github Repository
+3.	 Deploy to Github Pages
+Game UI Round 1
+1.	 Design a simple game board
+2.	 Add a click handler for when a space on the game board is clicked
+3.	 If the user clicks on a valid space then add their X or O
+4.	 Do not allow users to add an X or O to an invalid space
+Game Engine
+1.	 Create Empty Board in JS
+2.	 Create a way to keep track of the current player
+3.	 Add current player to your JavaScript representation of the board
+o	 Current player rotates between X and O
+o	 Can not choose already occupied spots
+4.	 Check Board for Winner
+Game UI Round 2
+1.	 Update the game engine when the game board is updated
+2.	 Add messaging for the user when the turn changes
+3.	 Add messaging for the user when the user clicks on an invalid space
+4.	 Add messaging for the user when the game is over (win or draw)
+5.	 Do not allow users to add an X or O to any spaces after the game is over
+Authentication
+1.	 Review api-token-auth
+2.	 Sign Up (curl then web app)
+3.	 Sign In (curl then web app)
+4.	 Change Password (curl then web app)
+5.	 Sign Out (curl then web page)
+6.	 All API calls have success or failure messages
+Game API
+1.	 Review jquery-ajax-crud
+2.	 Create Game, start new game (curl then web app)
+3.	 Update Game, play the game (curl then web app)
+4.	 Get Games (curl then web app)
+Final Touches
+1.	 README
+2.	 Troubleshoot/Debug
+3.	 Style
+Technical Specifications
+1.	 Use a custom game engine written by you.
+2.	 Be a single-page application, no browser refresh.
+3.	 Render a game board in the browser.
+4.	 Switch turns between X and O (or whichever markers you select). Tip: Assume player X is the first player to start the game.
+5.	 Visually display which side won if a player gets three in a row or show a draw if neither wins.
+6.	 Support playing multiple games, one at a time.
+7.	 Use jQuery for DOM manipulation and event handling.
+8.	 Use AJAX for interacting with a provided API.
+API Specifications
+1.	 Create new games on the server. (CREATE)
+2.	 Update a game by storing new moves. (UPDATE)
+3.	 Visually display the results of retrieving game statistics, such as total games won by a user. (READ)
+4.	 Give feedback to the user after each action.
+Auth Specifications
+1.	 Signup with email, password, and password confirmation.
+2.	 Login with email and password.
+3.	 Logout when logged in.
+4.	 Change password with current and new password.
+5.	 Signup and Signin must only be available to not signed in users.
+6.	 Logout and Change password must only be available to signed in users.
+7.	 Give feedback to the user after each action's success or failure.
+8.	 All forms must clear after submit success or failure
+DO NOT!!
+Your app must not:
+1.	 Delete your repository at any time or start over.
+2.	 Rely on refreshing the page for any functionality.
+3.	 Have any user-facing bugs.
+o	 Display non-functional buttons, nor buttons that do not successfully complete a task.
+o	 Show actions at inappropriate times (example: sign out button when not signed in).
+o	 Forms not clearing at appropriate times (example: sign up form not clearing after success).
+4.	 Allow the same game to be played after a player has won or tied.
+5.	 Allow players to move in the same square more than once.
+6.	 Change players when an invalid move is made.
+7.	 Use alerts for anything.
+8.	 Display errors or warnings in the console.
+9.	 Display debugging messages in the console.
