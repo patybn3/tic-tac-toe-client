@@ -77,39 +77,57 @@ const gameLogic = event => {
   // console.log(gameArr)
   if (gameArr[0] && gameArr[0] === gameArr[1] && gameArr[0] === gameArr[2] && gameArr[0] !== '') {
     store.game.over = true
-    $('#tictac').text(store.currentPlayer + ' Wins!')
+    $('#tictac').text(store.currentPlayer + ' Is The Winner!')
+    $('#tictac').addClass('success')
+    $('#tictac').css('font-size', '30px')
     // console.log('winner')
   } else if (gameArr[0] && gameArr[0] === gameArr[4] && gameArr[0] === gameArr[8] && gameArr[0] !== '') {
     store.game.over = true
-    $('#tictac').text(store.currentPlayer + ' Wins!')
+    $('#tictac').text(store.currentPlayer + ' Is The Winner!')
+    $('#tictac').addClass('success')
+    $('#tictac').css('font-size', '30px')
     // console.log('winner')
   } else if (gameArr[0] && gameArr[0] === gameArr[3] && gameArr[0] === gameArr[6] && gameArr[0] !== '') {
     store.game.over = true
-    $('#tictac').text(store.currentPlayer + ' Wins!')
+    $('#tictac').text(store.currentPlayer + ' Is The Winner!')
+    $('#tictac').addClass('success')
+    $('#tictac').css('font-size', '30px')
     // console.log('winner')
   } else if (gameArr[1] && gameArr[1] === gameArr[4] && gameArr[1] === gameArr[7] && gameArr[1] !== '') {
     store.game.over = true
-    $('#tictac').text(store.currentPlayer + ' Wins!')
+    $('#tictac').text(store.currentPlayer + ' Is The Winner!')
+    $('#tictac').addClass('success')
+    $('#tictac').css('font-size', '30px')
     // console.log('winner')
   } else if (gameArr[2] && gameArr[2] === gameArr[4] && gameArr[2] === gameArr[6] && gameArr[2] !== '') {
     store.game.over = true
-    $('#tictac').text(store.currentPlayer + ' Wins!')
+    $('#tictac').text(store.currentPlayer + ' Is The Winner!')
+    $('#tictac').addClass('success')
+    $('#tictac').css('font-size', '30px')
     // console.log('winner')
   } else if (gameArr[3] && gameArr[3] === gameArr[4] && gameArr[3] === gameArr[5] && gameArr[3] !== '') {
     store.game.over = true
-    $('#tictac').text(store.currentPlayer + ' Wins!')
+    $('#tictac').text(store.currentPlayer + ' Is The Winner!')
+    $('#tictac').addClass('success')
+    $('#tictac').css('font-size', '30px')
     // console.log('winner')
   } else if (gameArr[2] && gameArr[2] === gameArr[5] && gameArr[2] === gameArr[8] && gameArr[2] !== '') {
     store.game.over = true
-    $('#tictac').text(store.currentPlayer + ' Wins!')
+    $('#tictac').text(store.currentPlayer + ' Is The Winner!')
+    $('#tictac').addClass('success')
+    $('#tictac').css('font-size', '30px')
     // console.log('winner')
   } else if (gameArr[6] && gameArr[6] === gameArr[7] && gameArr[6] === gameArr[8] && gameArr[6] !== '') {
     store.game.over = true
-    $('#tictac').text(store.currentPlayer + ' Wins!')
+    $('#tictac').text(store.currentPlayer + ' Is The Winner!')
+    $('#tictac').addClass('success')
+    $('#tictac').css('font-size', '30px')
     // console.log('winner')
   } else if (gameArr.every(checkEmpty)) {
     store.game.over = true
     $('#tictac').text('Game Over: Its a tie!')
+    $('#tictac').addClass('failure')
+    $('#tictac').css('font-size', '30px')
   } else {
     store.game.over = false
     $('#tictac').text(`It's ${store.currentPlayer === 'O' ? 'X' : 'O'}'s turn!`)
