@@ -5,6 +5,7 @@ const store = require('../store')
 const newSuccess = (data) => {
   // console.log('newSuccess')
   $('#tictac').html('')
+  $('#tictac').removeClass('success')
   // store.turn = 1
   store.game = data.game
   // console.log(store.game)

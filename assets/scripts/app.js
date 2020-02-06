@@ -30,7 +30,7 @@ $(() => {
 
   $('#tray').on('click', eventsPageGame.plugLetters)
   $('#start-game').on('click', eventsPageGame.onNewGame)
-  $('#gamenumber').on('click', eventsPageGame.getGames)
+  $('#gamenumber').on('click', eventsPageGame.onGetGames)
   // your JS code goes here
 })
 //
