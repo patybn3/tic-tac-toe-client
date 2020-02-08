@@ -45,8 +45,8 @@ const plugLetters = event => {
   store.currentPlayer = store.currentPlayer === 'O' ? store.currentPlayer = 'X' : store.currentPlayer = 'O'
 
   api.gameApi(data)
-    .then(ui.onGameSuccess)
-    .catch(ui.onGetGamesFail)
+    .then(ui.onPlugSuccess)
+    .catch(ui.onPlugFail)
 }
 
 const checkEmpty = function (num) {

@@ -50,6 +50,7 @@ const changePwSuccess = function (response) {
     $('#password-change').fadeOut()
   }, 2500)
 
+  $('#change-alert').show()
   // setTimeout(() => {
   //   $('#settings').fadeIn()
   //   $('#scores').fadeIn()
@@ -114,6 +115,7 @@ const settingsBackSuccess = function (response) {
   $('#gamenumber').show()
   $('#settings-back').hide()
   $('#settings').show()
+  $('#number-message').hide()
 }
 
 const settingsBackFail = function (response) {

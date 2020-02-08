@@ -27,23 +27,34 @@ const newFail = function (response) {
   $('#tictac').text('The game failed to start')
 }
 
-const getGamesSuccess = function (response) {
-  $('#scores').text(response.games.length)
-}
-
-const getGamesFail = function (response) {
-  $('#scores').text('Unable to get total. Please Try Again')
-}
-
 const onGameSuccess = function (response) {
   $('.boxTwo').off('click')
+}
+
+const onGamesFail = function (response) {
+  $('#tictac').text('Please Try Again.')
+  $('#tictac').addClass('failure')
+}
+
+const onGetGamesSuccess = data => {
+  const gamesStarted = data.games
+  const gamesPlayed = gamesStarted.map(game => game.over)
+  $('#number-message').text(`You've played ${gamesPlayed.length} games.`)
+  $('#settings').hide()
+  $('#settings-back').show()
+
+  $('#number-message').show()
+}
+
+const onGetGamesFail = data => {
+  $('#number-message').text('Try again.')
 }
 
 module.exports = {
   newSuccess,
   newFail,
-  getGamesSuccess,
-  getGamesFail,
-  onGameSuccess
-  // onGetGamesSuccess
+  onGameSuccess,
+  onGetGamesSuccess,
+  onGetGamesFail,
+  onGamesFail
 }
