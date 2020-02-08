@@ -4,39 +4,36 @@
 body {
   background: $background-color-all;
   font-family: $page-font;
+  background-image: url('./public/image.jpg');
+  opacity: 93%;
 }
 
-#logo {
-  height: 100px;
-  width: 150px;
-}
-
-.background-image {
-  display: float;
-}
+// #logo {
+//   height: 100px;
+//   width: 150px;
+// }
 
 .box {
   align-items: left;
   background-color: $colors-of-boxes;
   border: 1px solid $colors-of-boxes;
+  border-radius: 10px;
   color: $general-text-color;
   display: flex;
-  height: 450px;
+  height: 420px;
   justify-content: center;
   padding: 80px;
-  border-radius: 10px;
 }
 
 .boxTwo {
-  align-items: left;
+  align-items: center;
   background-color: $colors-of-boxes;
   border: 2px solid $general-text-color;
   color: $general-text-color;
   display: flex;
+  font-size: 40px;
   height: 100px;
   justify-content: center;
-  align-items: center;
-  font-size: 40px;
 }
 
 [data-id ='0'] {
@@ -99,10 +96,38 @@ body {
   margin: 20px;
 }
 
-#logout, #logout-alert {
+#logout-alert {
   padding-right: 120px;
 }
 
 h1 {
   padding-left: 120px;
+}
+
+.let-play {
+  background-color: $colors-of-boxes;
+  // opacity: 70%;
+  border-radius: 10px;
+  margin: 20px 0;
+  padding: 10px 20px;
+}
+
+#start-game {
+  opacity: 100%;
+ }
+
+.opacity {
+  background-color: $colors-of-boxes;
+  opacity: 0%;
+ }
+
+#settings, #logout, #gamenumber, #settings-back {
+  float: right;
+  margin: 0 20px 0 0;
+ }
+
+#footer {
+  background-color: $colors-of-boxes;
+  margin: auto;
+  display: fixed;
 }

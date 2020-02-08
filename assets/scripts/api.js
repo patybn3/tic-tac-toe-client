@@ -39,20 +39,20 @@ const logingOut = data => {
   })
 }
 
-// const settingsGame = data => {
-//   return $.ajax({
-//     url: config.apiUrl + '/games',
-//     method: 'POST',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
+const settingsGame = data => {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 module.exports = {
   signUp,
   logIn,
   onChange,
-  logingOut
-  // settingsGame
+  logingOut,
+  settingsGame
 }

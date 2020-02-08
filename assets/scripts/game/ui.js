@@ -33,8 +33,6 @@ const getGamesFail = function (response) {
 }
 
 const onGameSuccess = function (response) {
-  // console.log(response)
-  // $('#tictac').text(store.currentPlayer + ' Wins!')
 }
 
 const endSuccess = function (response) {

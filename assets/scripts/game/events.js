@@ -125,23 +125,11 @@ const onGetGames = event => {
     .catch(ui.onGetGamesFail)
 }
 
-const onEndGame = event => {
-  event.preventDefault()
-
-  const form = event.target
-  const data = getForm(form)
-
-  api.endGame(data)
-    .then(ui.endSuccess)
-    .catch(ui.endFail)
-}
-
 module.exports = {
   gameLogic,
   onNewGame,
   onGetGames,
-  plugLetters,
-  onEndGame
+  plugLetters
 }
 // const numberOfGames = event => {
 //   event.preventDefault()

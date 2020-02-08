@@ -19,16 +19,27 @@
       <h3 id="login-alert"></h3>
       <p id="logout-alert"></p>
 
-    <form id="logout">
-      <fieldset>
-        <input type='submit' value='Log Out'>
-      </fieldset>
-    </form>
   </nav>
-  <div class="container text-center border">
+
+  <div class="container text-left">
     <div class="row">
-      <div class="col-6">
+      <div class="col-4 col-lg-12 let-play">
 <h5 id="tictac">Let's Play!</h5><br>
+<form id="logout">
+  <fieldset>
+    <input type='submit' value='Log Out'>
+  </fieldset>
+</form>
+<form id="settings-back">
+<fieldset>
+<input type='submit' value="Go Back">
+</fieldset>
+</form>
+<form id="settings">
+<fieldset>
+<input type='submit' value="Settings">
+</fieldset>
+</form>
 <button type="button" id="start-game">New Game</button>
 <button type="button" id="gamenumber">Number of Games</button>
               <p id="number-message"></p>
@@ -53,6 +64,7 @@
           </fieldset>
         </form>
         <h2 id="click-on-newGame">Click on "New Game" to Start</h2>
+        <h2 id="winner"></h2>
         <!-- game board -->
             <div class="row" id="tray">
           <div class="col-4 boxTwo" data-id="0"></div>
@@ -94,9 +106,7 @@
             <input type="password" placeholder="Renter Password" name="credentials[password_confirmation]">
             <input type="submit" value="Submit">
         </form>
-        <!-- <form id="settings">
-          <input type='submit' value="Settings">
-        </form> -->
+
           <form id="password-change">
             <fieldset>
               <legend id="change-pw-legend">Change Password</legend>
@@ -112,18 +122,12 @@
       </div>
       <div class="container text-center border">
         <div class="row">
-          <div class="col-12">
+          <div class="col-4 separation-container">
           </div>
         </div>
       </div>
-      <footer>
-        <div class="container">
-
-            <div class="col-lg-12">
+      <footer id='footer'>
               <p>A Game By Patricia Antlitz</p>
-            </div>
-          </div>
-        </div>
       </footer>
     </body>
 </html>
