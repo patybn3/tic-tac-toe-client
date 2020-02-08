@@ -43,9 +43,12 @@ const changePwSuccess = function (response) {
   $('#change-alert').addClass('success')
 
   setTimeout(() => {
+    $('#change-alert').fadeOut()
+  }, 1500)
+
+  setTimeout(() => {
     $('#password-change').fadeOut()
-    $('change-alert').fadeOut()
-  }, 2000)
+  }, 2500)
 
   // setTimeout(() => {
   //   $('#settings').fadeIn()

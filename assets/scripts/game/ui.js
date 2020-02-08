@@ -17,6 +17,9 @@ const newSuccess = (data) => {
   $('#game-number').text(`Your current game ID: ${store.game.id}`)
   $('#game-number').fadeIn('fast')
   $('#click-on-newGame').hide()
+
+  $('#tictac').removeClass('failure')
+  $('#winner').hide()
 }
 
 const newFail = function (response) {
@@ -33,20 +36,14 @@ const getGamesFail = function (response) {
 }
 
 const onGameSuccess = function (response) {
+  $('.boxTwo').off('click')
 }
-
-const endSuccess = function (response) {
-}
-// const onGetGamesSuccess = function (response) {
-//
-// }
 
 module.exports = {
   newSuccess,
   newFail,
   getGamesSuccess,
   getGamesFail,
-  onGameSuccess,
-  endSuccess
+  onGameSuccess
   // onGetGamesSuccess
 }
