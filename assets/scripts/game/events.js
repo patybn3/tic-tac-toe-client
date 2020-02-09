@@ -20,36 +20,6 @@ const onNewGame = event => {
     .catch(ui.newFail)
 }
 
-// store.currentPlayer = 'X'
-//
-// const plugLetters = event => {
-//   event.preventDefault()// prevents refreshing of game
-//
-//   $(event.target).text(store.currentPlayer)
-//
-//   const gameArr = store.game.cells
-//   // resets the array every time the new game button is clicked
-//   const index = $(event.target).attr('data-id')
-//   gameArr[index] = store.currentPlayer
-//   // console.log(gameArr)
-//   gameLogic()
-//
-//   const data = {
-//     'game': {
-//       'cell': {
-//         'index': index,
-//         'value': store.currentPlayer
-//       },
-//       'over': store.game.over
-//     }
-//   }
-//   // store.currentPlayer = store.currentPlayer === 'O' ? store.currentPlayer = 'X' : store.currentPlayer = 'O'
-//
-//   api.gameApi(data)
-//     .then(ui.onPlugSuccess)
-//     .catch(ui.onPlugFail)
-// }
-
 const checkEmpty = function (num) {
   return num === 'X' || num === 'O'
 }
@@ -184,3 +154,32 @@ module.exports = {
   // plugLetters
   clickOn
 }
+// store.currentPlayer = 'X'
+//
+// const plugLetters = event => {
+//   event.preventDefault()// prevents refreshing of game
+//
+//   $(event.target).text(store.currentPlayer)
+//
+//   const gameArr = store.game.cells
+//   // resets the array every time the new game button is clicked
+//   const index = $(event.target).attr('data-id')
+//   gameArr[index] = store.currentPlayer
+//   // console.log(gameArr)
+//   gameLogic()
+//
+//   const data = {
+//     'game': {
+//       'cell': {
+//         'index': index,
+//         'value': store.currentPlayer
+//       },
+//       'over': store.game.over
+//     }
+//   }
+//   // store.currentPlayer = store.currentPlayer === 'O' ? store.currentPlayer = 'X' : store.currentPlayer = 'O'
+//
+//   api.gameApi(data)
+//     .then(ui.onPlugSuccess)
+//     .catch(ui.onPlugFail)
+// }
