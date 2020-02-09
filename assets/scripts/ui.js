@@ -112,6 +112,7 @@ const settingsSuccess = function (response) {
   $('#settings').hide()
   $('#game-number').hide()
   $('#about').hide()
+  $('#current').hide()
 }
 
 const settingsFail = function (response) {
@@ -128,6 +129,7 @@ const settingsBackSuccess = function (response) {
   $('#number-message').hide()
   $('#game-number').hide()
   $('#about').show()
+  $('#current').show()
 }
 
 const settingsBackFail = function (response) {
