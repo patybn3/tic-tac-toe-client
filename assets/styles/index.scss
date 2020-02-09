@@ -3,15 +3,11 @@
 
 body {
   background: $background-color-all;
-  font-family: $page-font;
   background-image: url('./public/image.jpg');
+  background-position: fixed;
+  font-family: $page-font;
   opacity: 93%;
 }
-
-// #logo {
-//   height: 100px;
-//   width: 150px;
-// }
 
 .box {
   align-items: left;
@@ -130,24 +126,26 @@ h1 {
 
 #footer {
   background-color: $colors-of-boxes;
-  margin: auto;
   display: fixed;
+  margin: auto;
+  padding: 15px 0 15px 50px;
 }
+
 
 .winner {
   background-color: $box-background;
+  border-radius: 10px;
   color: $colors-of-boxes;
   font-size: 50px;
-  border-radius: 10px;
-  text-align: center;
   padding: 60px 0;
+  text-align: center;
 }
 
 .game-over {
   background-color: $failure-message;
+  border-radius: 10px;
   color: $colors-of-boxes;
   font-size: 50px;
-  border-radius: 10px;
-  text-align: center;
   padding: 60px 0;
+  text-align: center;
 }
