@@ -80,6 +80,9 @@ const logOutSuccess = function (response) {
   $('#gamenumber').hide()
   $('#click-on-newGame').hide()
   $('.let-play').addClass('opacity')
+  $('#settings').show()
+  $('#password-change').trigger('reset')
+  $('#number-message').hide()
   store.user = null
 
   setTimeout(() => {
