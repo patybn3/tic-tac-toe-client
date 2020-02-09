@@ -145,12 +145,24 @@ const clickOn = event => {
   // }
 }
 
+const onCurrent = event => {
+  event.preventDefault()
+
+  const form = event.target
+  const data = getForm(form)
+
+  api.newGame(data)
+    .then(ui.onCurrentSuccess)
+    .catch(ui.onCurrentFail)
+}
+
 module.exports = {
   gameLogic,
   onNewGame,
   onGetGames,
   // plugLetters
-  clickOn
+  clickOn,
+  onCurrent
 }
 // store.currentPlayer = 'X'
 //

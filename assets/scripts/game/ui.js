@@ -15,8 +15,8 @@ const newSuccess = (data) => {
   $('.boxTwo').empty()
   $('#tictac').show()
   $('#tictac').text(`It's ${store.currentPlayer}'s turn!`)
-  $('#game-number').text(`Your current game ID: ${store.game.id}`)
-  $('#game-number').fadeIn('fast')
+  // $('#game-number').text(`Your current game ID: ${store.game.id}`)
+  // $('#game-number').fadeIn('fast')
   $('#click-on-newGame').hide()
 
   $('#tictac').removeClass('failure')
@@ -47,10 +47,20 @@ const onGetGamesSuccess = data => {
   $('#game-number').hide()
 
   $('#number-message').show()
+  $('#about').hide()
 }
 
 const onGetGamesFail = data => {
   $('#number-message').text('Try again.')
+}
+
+const onCurrentSuccess = data => {
+  $('#game-number').text(`Your current game ID: ${store.game.id}`)
+  $('#game-number').fadeIn('fast')
+  $('#about').hide()
+  $('#number-message').hide()
+  $('#settings').hide()
+  $('#settings-back').show()
 }
 
 module.exports = {
@@ -59,5 +69,6 @@ module.exports = {
   onPlugSuccess,
   onGetGamesSuccess,
   onGetGamesFail,
-  onPlugFail
+  onPlugFail,
+  onCurrentSuccess
 }

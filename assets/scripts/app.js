@@ -21,6 +21,7 @@ $(() => {
   $('#click-on-newGame').hide()
   $('.let-play').addClass('opacity')
   $('#winner').hide()
+  $('#about').hide()
 
   $('#settings').on('click', eventsPage.onSettings)
   $('#settings-back').on('click', eventsPage.onSettingsBack)
@@ -34,6 +35,7 @@ $(() => {
   $('.boxTwo').on('click', eventsPageGame.clickOn)
   $('#start-game').on('click', eventsPageGame.onNewGame)
   $('#gamenumber').on('click', eventsPageGame.onGetGames)
+  $('#current').on('click', eventsPageGame.onCurrent)
   // your JS code goes here
 })
 //
