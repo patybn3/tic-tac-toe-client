@@ -18,6 +18,8 @@ const logInSuccess = function (response) {
   $('#login-alert').addClass('login-success')
   store.user = response.user // add to make it work
   $('#tictac').show()
+  $('#tictac').text(`Let's Play! The Game Starts With X.`)
+  $('#tictac').trigger('reset')
   $('#scores').show()
   $('#click-on-newGame').show()
   $('#logout').show()
@@ -47,12 +49,14 @@ const changePwSuccess = function (response) {
   setTimeout(() => {
     $('#change-alert').fadeOut()
   }, 1500)
-
-  setTimeout(() => {
-    $('#password-change').fadeOut()
-  }, 2500)
+  //
+  // setTimeout(() => {
+  //   $('#password-change').fadeOut()
+  // }, 2500)
 
   $('#change-alert').show()
+
+  $('#change-alert').removeClass('failure')
   // setTimeout(() => {
   //   $('#settings').fadeIn()
   //   $('#scores').fadeIn()
@@ -60,9 +64,15 @@ const changePwSuccess = function (response) {
 }
 
 const changePwFail = function (response) {
+  $('#change-alert').show()
   $('#change-alert').text('Unable to Change Your Password. Please Try Again')
   $('#password-change').trigger('reset')
   $('#change-alert').addClass('failure')
+
+  setTimeout(() => {
+    $('#change-alert').fadeOut()
+  }, 1500)
+  $('#change-alert').removeClass('success')
 }
 
 const logOutSuccess = function (response) {
@@ -72,6 +82,7 @@ const logOutSuccess = function (response) {
   $('#logout-alert').addClass('success')
   $('#logout').hide()
   $('#tray').hide()
+  $('#tictac').text(`Let's Play! The Game Starts With X.`)
   $('#tictac').hide()
   $('#signup').show()
   $('#login').show()

@@ -14,6 +14,7 @@ const newSuccess = (data) => {
   $('#tray').fadeIn('slow')
   $('.boxTwo').empty()
   $('#tictac').show()
+  $('#tictac').trigger('reset')
   $('#tictac').text(`It's ${store.currentPlayer}'s turn!`)
   // $('#game-number').text(`Your current game ID: ${store.game.id}`)
   // $('#game-number').fadeIn('fast')
