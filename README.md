@@ -1,35 +1,91 @@
-[Tic-tac-toe Wireframe 1](./TicTacToePg1.jpeg) ![Tic-tac-toe Wireframe 1](./TicTacToePg1.jpeg)
-[Tic-tac-toe Wireframe 2](./TicTacToen2.jpeg) ![Tic-tac-toe Wireframe 2](./TicTacToen2.jpeg)
+# TicTacToe
 
+## Objective:
 
-User Story:
+To create a functional Tic Tac Toe game which allows the user to store their personal and game information to track how many games were played. This game is to be built individually.
 
-//As a user I would like to have an easy interface.
+## Requirements to Follow:
 
-//As a user I would like to be able to sign in.
+This game must be stored in a public GitHub account, changes made are to be commited and deploy. Deploy often to keep the records up to date. This game must be original, and functional.
+Keep this game within a single page application. Do not create multiple pages for this website functions, no browser refreshing is allowed.
+This game should also allow multiple games, one at a time by using a restart function/button, visually display the winner and allow the switch between player X and player O.
 
-//As a user I would like to be able to sign out.
+## Technology Used:
 
-//As a user I would like to be able to sign up.
+This project is written in the following languages:
+HTML5
+Bootstrap
+CSS3
+SCSS
+JavaScript (ES6)
+jQuery
+AJAX
+Git/GitHub
 
-//As a user I would like to keep a record or my scores.
+## Planning and Development Process:
 
-//As a user I would like to be able to change my password
+User stories were created to propose the features of this game that would be used by an user who is to sing up and sign in to play the game:
 
-//As a user I would like to have a gamer nickname.
+1.As a user I would like to have an easy interface.
+2.As a user I would like to be able to sign in.
+3.As a user I would like to be able to sign out.
+4.As a user I would like to be able to sign up.
+5.As a user I would like to keep a record or my scores.
+6.As a user I would like to be able to change my password
+7.As a user I would like to start or restart the game.
+8.As a user I would like to be notified of errors.
+9.As a user I would like to be notified if I win or lose.
 
-//As a user I would like to start or restart the game.
+The original User Stories was followed by the project's Wireframe (attached below) which helped in visualizing a possible end product.
+1. View 1: Fist Wireframe, front page, should contain:
+Title/Header/Main page name
+Initial Nav Bar
+Sign Up form
+Log In form
+Footer with additional information
 
-//As a user I would like to be able to choose between X and O.
+  1. SignUp Form visible on first page
+  Label
+  Name, username, email, password, password confirmation
+  Submit button (event).
 
-//As a user I would like to play online with other users.
+  2. SignIn Form visible on first page
+  Label
+  Username & password
+  Submit button (event).
 
-//As a user I would like to play offline.
+2. View 2: Second Wireframe, "second" page, members page, should contain:
+Title/Header/Main page name
+Welcome message
+Initial Nav Bar
+Secondary navbar with: New Game, Game ID, Number of Games, Settings and Log Out buttons
+About me (game)
+Instructions to start the game
+Greeting message
+Footer with additional information
 
-//As a user I would like to be notified of errors.
+  1. Welcome Message: Located on navbar, to fade out at log out
+  2. New game button: start a new game, refreshes board and hides Instructions
+  3. Game ID button: retrieves the ID of the current game, hides About Me
+  4. Number of Games button: Displays the total number of games played by the current user.
+  5. Settings button: Shows Change Password form.
+  6. Log Out: Signs user out, Log out message displayed on navbar
 
-//As a user I would like to be notified if I win or lose.
+3. View 3: Aditional Wireframe, not previously planned. "Third" page, members page, should contain:
+Title/Header/Main page name
+Welcome message
+Initial Nav Bar
+Secondary navbar with: New Game, Game ID, Number of Games, Settings and Log Out buttons
+About me (game)
+Instructions to start the game / Game board / Winner
+Greeting message / Players Turn
+Footer with additional information
 
+  1. Game Board: activated when New Game button is clicked, game checks for a winner, if condition is met the game board hides and the winner message shows instead. New game button must be clicked again to start a new game.
+  2. Once the game starts greeting message will change to Player's turn.
+  3. All other buttons are still functional
+
+## General Notes:
 
 // toolbar to be achieved in HTML with boostrap
 
@@ -77,7 +133,7 @@ User Story:
 
 // possible if statement for computer gam
 
-
+## Schedule Followed:
 
 Set Up
 1.	 Download Browser Template
@@ -154,3 +210,31 @@ o	 Forms not clearing at appropriate times (example: sign up form not clearing a
 7.	 Use alerts for anything.
 8.	 Display errors or warnings in the console.
 9.	 Display debugging messages in the console.
+
+## Problem Solving:
+
+1. console.log what is not working
+2. check devs tools online for error messages
+3. make sure all functions were exported
+4. explain the error to someone else
+5. put the error in words and undertand the error
+6. make sure to know which function or part of the code is responsible or giving the error
+7. look at previous commits
+8. if a function, is it returning something, is it passing something?
+9. unable to fix open an issue in the issue channel.
+
+## Unsolved Problems / goals
+
+Problems: Game is pluggin player O into game array first while the board plugs X. I am able to obtain the correct winner thanks to an if statement that plugs the oposite player as the winner.
+
+Goals:
+1. Add a multiplayer function.
+2. Retrieve the total amount of games won by X vs O
+3. Pause and restart game with timer
+4. Retrieve unfinished game
+5. Retrieve previously played games
+
+
+
+[Tic-tac-toe Wireframe 1](./TicTacToePg1.jpeg) ![Tic-tac-toe Wireframe 1](./TicTacToePg1.jpeg)
+[Tic-tac-toe Wireframe 2](./TicTacToen2.jpeg) ![Tic-tac-toe Wireframe 2](./TicTacToen2.jpeg)
