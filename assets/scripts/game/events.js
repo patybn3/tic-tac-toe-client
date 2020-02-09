@@ -112,9 +112,10 @@ const clickOn = event => {
       store.currentPlayer = 'X'
     }
     gameArr[get] = store.currentPlayer
-  } else {
-    $('#tictac').text('Invalid Spot.')
   }
+  // else {
+  //   $('#tictac').text('Invalid Spot.')
+  // }
 
   gameLogic()
   if (store.currentPlayer === 'X') {

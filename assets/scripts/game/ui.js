@@ -20,6 +20,7 @@ const newSuccess = (data) => {
   $('#click-on-newGame').hide()
 
   $('#tictac').removeClass('failure')
+  $('#winner').removeClass('game-over')
   $('#winner').hide()
 }
 
