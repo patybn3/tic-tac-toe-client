@@ -8,6 +8,7 @@ const store = require('../store')
 // game starts here
 //
 //
+
 const onNewGame = event => {
   event.preventDefault()
 
@@ -20,34 +21,34 @@ const onNewGame = event => {
 }
 
 // store.currentPlayer = 'X'
-
-const plugLetters = event => {
-  event.preventDefault()// prevents refreshing of game
-
-  $(event.target).text(store.currentPlayer)
-
-  const gameArr = store.game.cells
-  // resets the array every time the new game button is clicked
-  const index = $(event.target).attr('data-id')
-  gameArr[index] = store.currentPlayer
-  // console.log(gameArr)
-  gameLogic()
-
-  const data = {
-    'game': {
-      'cell': {
-        'index': index,
-        'value': store.currentPlayer
-      },
-      'over': store.game.over
-    }
-  }
-  store.currentPlayer = store.currentPlayer === 'O' ? store.currentPlayer = 'X' : store.currentPlayer = 'O'
-
-  api.gameApi(data)
-    .then(ui.onPlugSuccess)
-    .catch(ui.onPlugFail)
-}
+//
+// const plugLetters = event => {
+//   event.preventDefault()// prevents refreshing of game
+//
+//   $(event.target).text(store.currentPlayer)
+//
+//   const gameArr = store.game.cells
+//   // resets the array every time the new game button is clicked
+//   const index = $(event.target).attr('data-id')
+//   gameArr[index] = store.currentPlayer
+//   // console.log(gameArr)
+//   gameLogic()
+//
+//   const data = {
+//     'game': {
+//       'cell': {
+//         'index': index,
+//         'value': store.currentPlayer
+//       },
+//       'over': store.game.over
+//     }
+//   }
+//   // store.currentPlayer = store.currentPlayer === 'O' ? store.currentPlayer = 'X' : store.currentPlayer = 'O'
+//
+//   api.gameApi(data)
+//     .then(ui.onPlugSuccess)
+//     .catch(ui.onPlugFail)
+// }
 
 const checkEmpty = function (num) {
   return num === 'X' || num === 'O'
@@ -67,10 +68,15 @@ const gameLogic = event => {
 (gameArr[6] && gameArr[6] === gameArr[7] && gameArr[6] === gameArr[8] && gameArr[6] !== '')) {
     store.game.over = true
     $('#tray').fadeOut('slow')
-    $('#tictac').text(store.currentPlayer + ' Is The Winner!')
-    $('#winner').text(store.currentPlayer + ' Is The Winner!')
-    $('#winner').addClass('winner')
-    $('#tictac').addClass('success')
+    $('#tictac').hide()
+    if (store.currentPlayer === 'X') {
+      $('#winner').text('O Is The Winner!')
+      $('#winner').addClass('winner')
+    } else {
+      $('#winner').text('X Is The Winner!')
+      $('#winner').addClass('winner')
+    }
+    // $('#tictac').addClass('success')
     $('#start-game').hide()
 
     setTimeout(() => {
@@ -124,25 +130,57 @@ const onGetGames = event => {
     .catch(ui.onGetGamesFail)
 }
 
+//
+const clickOn = event => {
+  event.preventDefault()
+
+  const gameArr = store.game.cells
+  const get = $(event.target).attr('data-id')
+  gameArr[get] = store.currentPlayer
+
+  if ($(event.target).text() === '') {
+    $(event.target).text(store.currentPlayer)
+    if (store.currentPlayer === 'X') {
+      store.currentPlayer = 'O'
+    } else {
+      store.currentPlayer = 'X'
+    }
+  } else {
+    $('#tictac').text('Invalid Spot.')
+  }
+
+  gameLogic()
+  if (store.currentPlayer === 'X') {
+    $('#tictac').text(`It's ${store.currentPlayer}'s turn!`)
+  } else {
+    $('#tictac').text(`It's ${store.currentPlayer}'s turn!`)
+  }
+
+  const data = {
+    'game': {
+      'cell': {
+        'index': get,
+        'value': store.currentPlayer
+      },
+      'over': store.game.over
+    }
+  }
+
+  api.gameApi(data)
+    .then(ui.onPlugSuccess)
+    .catch(ui.onPlugFail)
+
+  // if (store.currentPlayer === 'X') {
+  //   store.currentPlayer = 'O'
+  // } else {
+  //   store.currentPlayer = 'X'
+  // }
+}
+
 module.exports = {
   gameLogic,
   onNewGame,
   onGetGames,
-  plugLetters
+  // plugLetters
+  clickOn
 }
-// const numberOfGames = event => {
-//   event.preventDefault()
-//
-//   api.showGamesPlayed()
-//     .then(ui.numberOfGamesSuccess)
-//     .catch(ui.numberOfGamesFail)
-// }
-// gameArr[0] = $('event.target').data('box0')
-// gameArr[1] = $('event.target').data('box1')
-// gameArr[2] = $('event.target').data('box2')
-// gameArr[3] = $('event.target').data('box3')
-// gameArr[4] = $('event.target').data('box4')
-// gameArr[5] = $('event.target').data('box5')
-// gameArr[6] = $('event.target').data('box6')
-// gameArr[7] = $('event.target').data('box7')
-// gameArr[8] = $('event.target').data('box8')

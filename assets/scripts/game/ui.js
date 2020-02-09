@@ -13,6 +13,7 @@ const newSuccess = (data) => {
   // store.over = data.game.over
   $('#tray').fadeIn('slow')
   $('.boxTwo').empty()
+  $('#tictac').show()
   $('#tictac').text(`It's ${store.currentPlayer}'s turn!`)
   $('#game-number').text(`Your current game ID: ${store.game.id}`)
   $('#game-number').fadeIn('fast')
@@ -27,11 +28,11 @@ const newFail = function (response) {
   $('#tictac').text('The game failed to start')
 }
 
-const onGameSuccess = function (response) {
-  $('.boxTwo').off('click')
+const onPlugSuccess = function (response) {
+  // $('.boxTwo').off('click')
 }
 
-const onGamesFail = function (response) {
+const onPlugFail = function (response) {
   $('#tictac').text('Please Try Again.')
   $('#tictac').addClass('failure')
 }
@@ -42,6 +43,7 @@ const onGetGamesSuccess = data => {
   $('#number-message').text(`You've played ${gamesPlayed.length} games.`)
   $('#settings').hide()
   $('#settings-back').show()
+  $('#game-number').hide()
 
   $('#number-message').show()
 }
@@ -53,8 +55,8 @@ const onGetGamesFail = data => {
 module.exports = {
   newSuccess,
   newFail,
-  onGameSuccess,
+  onPlugSuccess,
   onGetGamesSuccess,
   onGetGamesFail,
-  onGamesFail
+  onPlugFail
 }

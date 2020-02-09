@@ -83,6 +83,7 @@ const logOutSuccess = function (response) {
   $('#settings').show()
   $('#password-change').trigger('reset')
   $('#number-message').hide()
+  $('#game-number').hide()
   store.user = null
 
   setTimeout(() => {
@@ -105,6 +106,7 @@ const settingsSuccess = function (response) {
   $('#settings-back').show()
   $('#gamenumber').hide()
   $('#settings').hide()
+  $('#game-number').hide()
 }
 
 const settingsFail = function (response) {
@@ -119,6 +121,7 @@ const settingsBackSuccess = function (response) {
   $('#settings-back').hide()
   $('#settings').show()
   $('#number-message').hide()
+  $('#game-number').show()
 }
 
 const settingsBackFail = function (response) {

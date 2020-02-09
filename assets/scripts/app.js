@@ -29,8 +29,8 @@ $(() => {
   $('#password-change').on('submit', eventsPage.changePw)
   $('#logout').on('submit', eventsPage.onLogOut)
   // game starts here
-
-  $('#tray').on('click', eventsPageGame.plugLetters)
+  //
+  // $('#tray').on('click', eventsPageGame.plugLetters)
   $('.boxTwo').on('click', eventsPageGame.clickOn)
   $('#start-game').on('click', eventsPageGame.onNewGame)
   $('#gamenumber').on('click', eventsPageGame.onGetGames)
