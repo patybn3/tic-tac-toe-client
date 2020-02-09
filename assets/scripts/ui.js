@@ -29,6 +29,7 @@ const logInSuccess = function (response) {
   $('#gamenumber').show()
   $('#password-change').hide()
   $('#settings-back').hide()
+  $('#login-alert').show()
 }
 
 const logInFail = function (response) {
@@ -64,6 +65,7 @@ const changePwFail = function (response) {
 }
 
 const logOutSuccess = function (response) {
+  $('#logout-alert').show()
   $('#logout-alert').text('You Have Signed Out!')
   $('#logout').trigger('reset')
   $('#logout-alert').addClass('success')
