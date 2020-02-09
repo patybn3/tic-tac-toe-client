@@ -3,19 +3,23 @@ const store = require('../store')
 // const events = require('./events')
 
 const newSuccess = (data) => {
-  console.log('newSuccess')
+  // console.log('newSuccess')
   $('#tictac').html('')
-  store.turn = 1
+  $('#tictac').removeClass('success')
+  // store.turn = 1
   store.game = data.game
-  console.log(store.game)
-  store.player = 'x'
+  // console.log(store.game)
+  store.currentPlayer = 'X'
   // store.over = data.game.over
   $('#tray').fadeIn('slow')
   $('.boxTwo').empty()
-  $('#tictac').text(`It's ${store.player}'s turn!`)
+  $('#tictac').text(`It's ${store.currentPlayer}'s turn!`)
   $('#game-number').text(`Your current game ID: ${store.game.id}`)
   $('#game-number').fadeIn('fast')
   $('#click-on-newGame').hide()
+
+  $('#tictac').removeClass('failure')
+  $('#winner').hide()
 }
 
 const newFail = function (response) {
@@ -23,31 +27,34 @@ const newFail = function (response) {
   $('#tictac').text('The game failed to start')
 }
 
-const getGamesSuccess = function (response) {
-  $('#scores').text(response.games.length)
-}
-
-const getGamesFail = function (response) {
-  $('#scores').text('Unable to get total. Please Try Again')
-}
-
 const onGameSuccess = function (response) {
-  console.log(response)
-  // $('#tictac').text(store.currentPlayer + ' Wins!')
+  $('.boxTwo').off('click')
 }
 
-const endSuccess = function (response) {
+const onGamesFail = function (response) {
+  $('#tictac').text('Please Try Again.')
+  $('#tictac').addClass('failure')
 }
-// const onGetGamesSuccess = function (response) {
-//
-// }
+
+const onGetGamesSuccess = data => {
+  const gamesStarted = data.games
+  const gamesPlayed = gamesStarted.map(game => game.over)
+  $('#number-message').text(`You've played ${gamesPlayed.length} games.`)
+  $('#settings').hide()
+  $('#settings-back').show()
+
+  $('#number-message').show()
+}
+
+const onGetGamesFail = data => {
+  $('#number-message').text('Try again.')
+}
 
 module.exports = {
   newSuccess,
   newFail,
-  getGamesSuccess,
-  getGamesFail,
   onGameSuccess,
-  endSuccess
-  // onGetGamesSuccess
+  onGetGamesSuccess,
+  onGetGamesFail,
+  onGamesFail
 }

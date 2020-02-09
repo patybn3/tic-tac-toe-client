@@ -24,10 +24,11 @@ const logInSuccess = function (response) {
   $('#login').hide()
   $('#signup').hide()
   $('#start-game').show()
-  // $('#settings').show()
-  $('#password-change').show()
+  $('.let-play').removeClass('opacity')
   $('#lookup-game').show()
   $('#gamenumber').show()
+  $('#password-change').hide()
+  $('#settings-back').hide()
 }
 
 const logInFail = function (response) {
@@ -42,10 +43,14 @@ const changePwSuccess = function (response) {
   $('#change-alert').addClass('success')
 
   setTimeout(() => {
-    $('#password-change').fadeOut()
-    $('change-alert').fadeOut()
-  }, 2000)
+    $('#change-alert').fadeOut()
+  }, 1500)
 
+  setTimeout(() => {
+    $('#password-change').fadeOut()
+  }, 2500)
+
+  $('#change-alert').show()
   // setTimeout(() => {
   //   $('#settings').fadeIn()
   //   $('#scores').fadeIn()
@@ -74,6 +79,7 @@ const logOutSuccess = function (response) {
   $('#start-game').hide()
   $('#gamenumber').hide()
   $('#click-on-newGame').hide()
+  $('.let-play').addClass('opacity')
   store.user = null
 
   setTimeout(() => {
@@ -91,17 +97,32 @@ const logOutFail = function (response) {
   }, 2000)
 }
 
-// const settingsSuccess = function (response) {
-//   $('#password-change').show()
-//   $('#settings').hide()
-//   $('#scores').hide()
-// }
-//
-// const settingsFail = function (response) {
-//   $('#signup-alert').text('Unable to Access Settings. Please Try Again')
-//   $('#signup').trigger('reset')
-//   $('#signup-alert').addClass('failure')
-// }
+const settingsSuccess = function (response) {
+  $('#password-change').show()
+  $('#settings-back').show()
+  $('#gamenumber').hide()
+  $('#settings').hide()
+}
+
+const settingsFail = function (response) {
+  $('#tictac').text('Unable to Access Settings. Please Try Again')
+  $('#tictac').trigger('reset')
+  $('#tictac').addClass('failure')
+}
+
+const settingsBackSuccess = function (response) {
+  $('#password-change').hide()
+  $('#gamenumber').show()
+  $('#settings-back').hide()
+  $('#settings').show()
+  $('#number-message').hide()
+}
+
+const settingsBackFail = function (response) {
+  $('#tictac').text('Error. Please Try Again')
+  $('#tictac').trigger('reset')
+  $('#tictac').addClass('failure')
+}
 
 module.exports = {
   signUpSuccess,
@@ -111,7 +132,9 @@ module.exports = {
   changePwSuccess,
   changePwFail,
   logOutSuccess,
-  logOutFail
-  // settingsSuccess,
-  // settingsFail
+  logOutFail,
+  settingsSuccess,
+  settingsFail,
+  settingsBackSuccess,
+  settingsBackFail
 }

@@ -19,26 +19,20 @@ const onNewGame = event => {
     .catch(ui.newFail)
 }
 
-store.currentPlayer = 'X'
+// store.currentPlayer = 'X'
 
 const plugLetters = event => {
-  event.preventDefault()// prevents refreshing of game ??
+  event.preventDefault()// prevents refreshing of game
 
   $(event.target).text(store.currentPlayer)
-  store.currentPlayer = store.currentPlayer === 'O' ? store.currentPlayer = 'X' : store.currentPlayer = 'O'
 
-  // store.cells = gameArr
+  const gameArr = store.game.cells
+  // resets the array every time the new game button is clicked
   const index = $(event.target).attr('data-id')
   gameArr[index] = store.currentPlayer
-  console.log(gameArr)
+  // console.log(gameArr)
   gameLogic()
-  if (store.currentPlayer === 'X') {
-    store.player = 'o'
-    $('#tictac').text('Its X turn!')
-  } else if (store.currentPlayer === 'O') {
-    store.player = 'x'
-    $('#tictac').text('Its O turn!')
-  }
+
   const data = {
     'game': {
       'cell': {
@@ -48,82 +42,93 @@ const plugLetters = event => {
       'over': store.game.over
     }
   }
+  store.currentPlayer = store.currentPlayer === 'O' ? store.currentPlayer = 'X' : store.currentPlayer = 'O'
 
   api.gameApi(data)
-    .then(ui.onGameSuccess)
-    .catch(ui.onGetGamesFail)
+    .then(ui.onPlugSuccess)
+    .catch(ui.onPlugFail)
 }
-// get total number of games
-// const onGetGames = event => {
-//   event.preventDefault()
-//
-//   const form = event.target
-//   const data = getForm(form)
-//
-//   api.showGamesPlayed(data)
-//     .then(ui.onGetGamesSuccess)
-//     .catch(ui.onGetGamesFail)
-// }
-const gameArr = ['', '', '', '', '', '', '', '', '']
+
+const checkEmpty = function (num) {
+  return num === 'X' || num === 'O'
+}
 
 const gameLogic = event => {
+  const gameArr = store.game.cells
   // const gameArr = store.game.cells
   // console.log(gameArr)
-  if (gameArr[0] && gameArr[0] === gameArr[1] && gameArr[0] === gameArr[2] && gameArr[0] !== '') {
+  if ((gameArr[0] && gameArr[0] === gameArr[1] && gameArr[0] === gameArr[2] && gameArr[0] !== '') ||
+(gameArr[0] && gameArr[0] === gameArr[4] && gameArr[0] === gameArr[8] && gameArr[0] !== '') ||
+(gameArr[0] && gameArr[0] === gameArr[3] && gameArr[0] === gameArr[6] && gameArr[0] !== '') ||
+(gameArr[1] && gameArr[1] === gameArr[4] && gameArr[1] === gameArr[7] && gameArr[1] !== '') ||
+(gameArr[2] && gameArr[2] === gameArr[4] && gameArr[2] === gameArr[6] && gameArr[2] !== '') ||
+(gameArr[3] && gameArr[3] === gameArr[4] && gameArr[3] === gameArr[5] && gameArr[3] !== '') ||
+(gameArr[2] && gameArr[2] === gameArr[5] && gameArr[2] === gameArr[8] && gameArr[2] !== '') ||
+(gameArr[6] && gameArr[6] === gameArr[7] && gameArr[6] === gameArr[8] && gameArr[6] !== '')) {
     store.game.over = true
-    $('#tictac').text(store.currentPlayer + ' Wins!')
-    // console.log('winner')
-  } else if (gameArr[0] && gameArr[0] === gameArr[4] && gameArr[0] === gameArr[8] && gameArr[0] !== '') {
+    $('#tray').fadeOut('slow')
+    $('#tictac').text(store.currentPlayer + ' Is The Winner!')
+    $('#winner').text(store.currentPlayer + ' Is The Winner!')
+    $('#winner').addClass('winner')
+    $('#tictac').addClass('success')
+    $('#start-game').hide()
+
+    setTimeout(() => {
+      $('#winner').fadeIn()
+    }, 1000)
+
+    setTimeout(() => {
+      $('#winner').fadeOut()
+    }, 2500)
+
+    setTimeout(() => {
+      $('#click-on-newGame').fadeIn()
+      $('#start-game').fadeIn()
+    }, 3000)
+  } else if (gameArr.every(checkEmpty)) {
     store.game.over = true
-    $('#tictac').text(store.currentPlayer + ' Wins!')
-    // console.log('winner')
-  } else if (gameArr[0] && gameArr[0] === gameArr[3] && gameArr[0] === gameArr[6] && gameArr[0] !== '') {
-    store.game.over = true
-    $('#tictac').text(store.currentPlayer + ' Wins!')
-    // console.log('winner')
-  } else if (gameArr[1] && gameArr[1] === gameArr[4] && gameArr[1] === gameArr[7] && gameArr[0] !== '') {
-    store.game.over = true
-    $('#tictac').text(store.currentPlayer + ' Wins!')
-    // console.log('winner')
-  } else if (gameArr[2] && gameArr[2] === gameArr[4] && gameArr[2] === gameArr[6] && gameArr[0] !== '') {
-    store.game.over = true
-    $('#tictac').text(store.currentPlayer + ' Wins!')
-    // console.log('winner')
-  } else if (gameArr[3] && gameArr[3] === gameArr[4] && gameArr[3] === gameArr[5] && gameArr[0] !== '') {
-    store.game.over = true
-    $('#tictac').text(store.currentPlayer + ' Wins!')
-    // console.log('winner')
-  } else if (gameArr[2] && gameArr[2] === gameArr[5] && gameArr[2] === gameArr[8] && gameArr[0] !== '') {
-    store.game.over = true
-    $('#tictac').text(store.currentPlayer + ' Wins!')
-    // console.log('winner')
-  } else if (gameArr[6] && gameArr[6] === gameArr[7] && gameArr[6] === gameArr[8] && gameArr[0] !== '') {
-    store.game.over = true
-    $('#tictac').text(store.currentPlayer + ' Wins!')
-    // console.log('winner')
-  } else {
-    store.game.over = true
+    $('#tray').fadeOut('slow')
     $('#tictac').text('Game Over: Its a tie!')
+    $('#tictac').addClass('failure')
+    $('#winner').text('Game Over: Its a tie!')
+    $('#winner').addClass('game-over')
+    $('#start-game').hide()
+
+    setTimeout(() => {
+      $('#winner').fadeIn()
+    }, 1000)
+
+    setTimeout(() => {
+      $('#winner').fadeOut()
+    }, 2500)
+
+    setTimeout(() => {
+      $('#click-on-newGame').fadeIn()
+      $('#start-game').fadeIn()
+    }, 3000)
+  } else {
+    store.game.over = false
+    $('#tictac').text(`It's ${store.currentPlayer === 'O' ? 'X' : 'O'}'s turn!`)
   }
 }
 
-const onEndGame = event => {
+// get total number of games
+const onGetGames = event => {
   event.preventDefault()
 
   const form = event.target
   const data = getForm(form)
 
-  api.endGame(data)
-    .then(ui.endSuccess)
-    .catch(ui.endFail)
+  api.showGamesPlayed(data)
+    .then(ui.onGetGamesSuccess)
+    .catch(ui.onGetGamesFail)
 }
 
 module.exports = {
   gameLogic,
   onNewGame,
-  // onGetGames,
-  plugLetters,
-  onEndGame
+  onGetGames,
+  plugLetters
 }
 // const numberOfGames = event => {
 //   event.preventDefault()

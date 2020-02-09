@@ -16,12 +16,14 @@ $(() => {
   $('#tictac').hide()
   $('#scores').hide()
   $('#gamenumber').hide()
-  // $('#settings').hide()
   $('#lookup-game').hide()
   $('#start-game').hide()
   $('#click-on-newGame').hide()
+  $('.let-play').addClass('opacity')
+  $('#winner').hide()
 
-  // $('#settings').on('click', eventsPage.onSettings)
+  $('#settings').on('click', eventsPage.onSettings)
+  $('#settings-back').on('click', eventsPage.onSettingsBack)
   $('#signup').on('submit', eventsPage.onSignUp)
   $('#login').on('submit', eventsPage.onLogIn)
   $('#password-change').on('submit', eventsPage.changePw)
@@ -30,7 +32,7 @@ $(() => {
 
   $('#tray').on('click', eventsPageGame.plugLetters)
   $('#start-game').on('click', eventsPageGame.onNewGame)
-  $('#gamenumber').on('click', eventsPageGame.getGames)
+  $('#gamenumber').on('click', eventsPageGame.onGetGames)
   // your JS code goes here
 })
 //
