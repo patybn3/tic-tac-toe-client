@@ -26,7 +26,6 @@ const checkEmpty = function (num) {
 
 const gameLogic = event => {
   const gameArr = store.game.cells
-  // const gameArr = store.game.cells
   // console.log(gameArr)
   if ((gameArr[0] && gameArr[0] === gameArr[1] && gameArr[0] === gameArr[2] && gameArr[0] !== '') ||
 (gameArr[0] && gameArr[0] === gameArr[4] && gameArr[0] === gameArr[8] && gameArr[0] !== '') ||
@@ -39,12 +38,11 @@ const gameLogic = event => {
     store.game.over = true
     $('#tray').fadeOut('slow')
     $('#tictac').hide()
+    $('#winner').addClass('winner')
     if (store.currentPlayer === 'X') {
       $('#winner').text('O Is The Winner!')
-      $('#winner').addClass('winner')
     } else {
       $('#winner').text('X Is The Winner!')
-      $('#winner').addClass('winner')
     }
     // $('#tictac').addClass('success')
     $('#start-game').hide()
@@ -64,8 +62,7 @@ const gameLogic = event => {
   } else if (gameArr.every(checkEmpty)) {
     store.game.over = true
     $('#tray').fadeOut('slow')
-    $('#tictac').text('Game Over: Its a tie!')
-    $('#tictac').addClass('failure')
+    $('#tictac').hide()
     $('#winner').text('Game Over: Its a tie!')
     $('#winner').addClass('game-over')
     $('#start-game').hide()
@@ -106,15 +103,15 @@ const clickOn = event => {
 
   const gameArr = store.game.cells
   const get = $(event.target).attr('data-id')
-  gameArr[get] = store.currentPlayer
 
-  if ($(event.target).text() === '') {
+  if (($(event.target).text() === '') && (gameArr[get] = store.currentPlayer)) {
     $(event.target).text(store.currentPlayer)
     if (store.currentPlayer === 'X') {
       store.currentPlayer = 'O'
     } else {
       store.currentPlayer = 'X'
     }
+    gameArr[get] = store.currentPlayer
   } else {
     $('#tictac').text('Invalid Spot.')
   }
