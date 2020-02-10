@@ -14,6 +14,10 @@ const signUpFail = function (response) {
   $('#signup-alert').text('Unable to Sign Up. Please Try Again')
   $('#signup').trigger('reset')
   $('#signup-alert').addClass('failure')
+
+  setTimeout(() => {
+    $('#signup-alert').fadeOut()
+  }, 2000)
 }
 
 const logInSuccess = function (response) {
@@ -43,6 +47,10 @@ const logInFail = function (response) {
   $('#login-fail').text('Unable to Log In. Please Try Again')
   $('#login').trigger('reset')
   $('#login-fail').addClass('failure')
+
+  setTimeout(() => {
+    $('#login-fail').fadeOut()
+  }, 2000)
 }
 
 const changePwSuccess = function (response) {
