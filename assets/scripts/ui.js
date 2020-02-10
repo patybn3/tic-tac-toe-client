@@ -98,7 +98,9 @@ const logOutSuccess = function (response) {
   $('#password-change').trigger('reset')
   $('#number-message').hide()
   $('#game-number').hide()
+  $('#current').trigger('reset')
   $('#about').hide()
+  $('#start-game').trigger('reset')
   store.user = null
 
   setTimeout(() => {

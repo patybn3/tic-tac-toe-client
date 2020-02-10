@@ -4,6 +4,7 @@ const store = require('../store')
 
 const newSuccess = (data) => {
   // console.log('newSuccess')
+  $('#start-game').trigger('reset')
   $('#tictac').html('')
   $('#tictac').removeClass('success')
   // store.turn = 1
@@ -23,6 +24,8 @@ const newSuccess = (data) => {
   $('#tictac').removeClass('failure')
   $('#winner').removeClass('game-over')
   $('#winner').hide()
+  $('#game-number').removeClass('failure')
+  $('#game-number').hide()
 }
 
 const newFail = function (response) {
@@ -56,12 +59,21 @@ const onGetGamesFail = data => {
 }
 
 const onCurrentSuccess = data => {
+  $('#current').trigger('reset')
+  $('#game-number').show()
+  $('#game-number').removeClass('failure')
   $('#game-number').text(`Your current game ID: ${store.game.id}`)
   $('#game-number').fadeIn('fast')
   $('#about').hide()
   $('#number-message').hide()
   $('#settings').hide()
   $('#settings-back').show()
+}
+
+const onCurrentFail = data => {
+  $('#about').hide()
+  $('#game-number').text('Please Click on the New Game button to Start a Game and Click on Current Game ID button to See The Current Game ID')
+  $('#game-number').addClass('failure')
 }
 
 module.exports = {
@@ -71,5 +83,6 @@ module.exports = {
   onGetGamesSuccess,
   onGetGamesFail,
   onPlugFail,
-  onCurrentSuccess
+  onCurrentSuccess,
+  onCurrentFail
 }
