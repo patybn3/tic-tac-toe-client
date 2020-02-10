@@ -4,6 +4,10 @@ const signUpSuccess = function (response) {
   $('#signup-alert').text('You Have Signed Up!')
   $('#signup').trigger('reset')
   $('#signup-alert').addClass('success')
+
+  setTimeout(() => {
+    $('#signup-alert').fadeOut()
+  }, 2000)
 }
 
 const signUpFail = function (response) {
