@@ -13,14 +13,14 @@ This game should also allow multiple games, one at a time by using a restart fun
 ## Technology Used:
 
 This project is written in the following languages:
-HTML5
-Bootstrap
-CSS3
-SCSS
-JavaScript (ES6)
-jQuery
-AJAX
-Git/GitHub
+1. HTML5
+2. Bootstrap
+3. CSS3
+4. SCSS
+5. JavaScript (ES6)
+6. jQuery
+7. AJAX
+8. Git/GitHub
 
 ## Planning and Development Process:
 
