@@ -233,6 +233,7 @@ Goals:
 3. Pause and restart game with timer
 4. Retrieve unfinished game
 5. Retrieve previously played games
+6. Reactivate the current game ID count commented out
 
 
 

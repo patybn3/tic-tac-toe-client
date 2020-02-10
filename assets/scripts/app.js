@@ -35,7 +35,7 @@ $(() => {
   $('.boxTwo').on('click', eventsPageGame.clickOn)
   $('#start-game').on('click', eventsPageGame.onNewGame)
   $('#gamenumber').on('click', eventsPageGame.onGetGames)
-  $('#current').on('click', eventsPageGame.onCurrent)
+  // $('#current').on('click', eventsPageGame.onCurrent)
   // your JS code goes here
 })
 //
