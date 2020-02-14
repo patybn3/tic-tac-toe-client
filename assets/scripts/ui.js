@@ -97,6 +97,7 @@ const logOutSuccess = function (response) {
   $('#tictac').text(`Let's Play! The Game Starts With X.`)
   $('#tictac').hide()
   $('#signup').show()
+  $('#signup').trigger('reset')
   $('#login').show()
   $('#settings').hide()
   $('#scores').hide()
