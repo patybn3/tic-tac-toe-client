@@ -226,6 +226,7 @@ o	 Forms not clearing at appropriate times (example: sign up form not clearing a
 ## Unsolved Problems / goals
 
 Problems: Game is pluggin player O into game array first while the board plugs X. I am able to obtain the correct winner thanks to an if statement that plugs the oposite player as the winner.
+ ----- This Problem has been solved
 
 Goals:
 1. Add a multiplayer function.
@@ -233,7 +234,7 @@ Goals:
 3. Pause and restart game with timer
 4. Retrieve unfinished game
 5. Retrieve previously played games
-6. Reactivate the current game ID count commented out
+6. Reactivate the current game ID count (already a function, commented out)
 
 
 

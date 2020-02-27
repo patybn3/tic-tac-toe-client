@@ -31,7 +31,7 @@ const newGame = data => {
 }
 
 const gameApi = data => {
-  console.log(store)
+  // console.log(store)
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
