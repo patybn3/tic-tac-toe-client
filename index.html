@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Tic Tac Toe</title>
+      <title>Tic Tac Bro</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -16,15 +16,16 @@
     </head>
     <body>
       <nav class="navbar">
-      <h1>TIC TAC TOE</h1>
+      <h1 id="title">TIC TAC BRO</h1>
       <h3 id="login-alert"></h3>
       <p id="logout-alert"></p>
 
-      <div id"translate">
-        <h5>Translate</h5>
+      <div id="translate-div">
+        <h5 id="translate">Translate</h5>
       <div id="google_translate_element"></div>
 
-      <script type="text/javascript">
+
+      <script type="text/javascript" >
       function googleTranslateElementInit() {
         new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
       }
@@ -36,25 +37,25 @@
 
   <div class="container text-left">
     <div class="row">
-      <div class="col-4 col-lg-12 let-play">
+      <div class="col-12 let-play">
 <h5 id="tictac"></h5><br>
 <form id="logout">
   <fieldset>
-    <input type='submit' value='Log Out'>
+    <input type='submit' value='Log Out' class="button-color">
   </fieldset>
 </form>
 <form id="settings-back">
 <fieldset>
-<input type='submit' value="Go Back">
+<input type='submit' value="Go Back" class="button-color">
 </fieldset>
 </form>
 <form id="settings">
 <fieldset>
-<input type='submit' value="Change Password">
+<input type='submit' value="Change Password" class="button-color">
 </fieldset>
 </form>
-<button type="button" id="start-game">New Game</button>
-<button type="button" id="gamenumber">Number of Games</button>
+<button type="button" id="start-game" class="button-color">New Game</button>
+<button type="button" id="gamenumber" class="button-color">Number of Games</button>
 <!-- <button type="button" id="current">Current Game ID</button> -->
 </div>
 </div>
@@ -68,12 +69,13 @@
             <legend class="legend">Sign In!</legend>
             <p id="login-fail"></p>
             <p class="email">Email</p>
-            <input type="email" placeholder="Enter Email" name="credentials[email]">
+            <input type="email" placeholder="Enter Email" name="credentials[email]" class="button-color">
+            <br>
             <p class="pw">Password</p>
-            <input type="password" placeholder="Enter Password" name="credentials[password]">
-            <input type="submit" value="Submit">
-
-            <p id="not-member">Not a Member? Sign Up!</p>
+            <input type="password" placeholder="Enter Password" name="credentials[password]" class="button-color">
+            <input type="submit" value="Submit" class="button-color">
+            <br>
+            <p id="not-member">Not a Member? <a href="#signup">Sign Up!</a></p>
           </fieldset>
         </form>
         <h2 id="winner"></h2><br>
@@ -94,7 +96,7 @@
       </div>
     </div>
 
-    <div class="col-0 col-lg-2"> <!-- separates -->
+    <div class="col-2"> <!-- separates -->
       <!-- <table id='scores' class="table table-hover col-4 text-center">
         <thead>
           <tr>
@@ -113,12 +115,12 @@
             <legend class="legend">Sign Up!</legend>
             <p id="signup-alert"></p>
             <p class="email">Email</p>
-            <input type="email" placeholder="Enter Email" name="credentials[email]">
+            <input type="email" placeholder="Enter Email" name="credentials[email]" class="button-color">
             <p class="pw">Enter Password</p>
-            <input type="password" placeholder="Enter Password" name="credentials[password]">
+            <input type="password" placeholder="Enter Password" name="credentials[password]" class="button-color">
             <p class="pw">Confirm Password</p>
-            <input type="password" placeholder="Renter Password" name="credentials[password_confirmation]">
-            <input type="submit" value="Submit">
+            <input type="password" placeholder="Renter Password" name="credentials[password_confirmation]" class="button-color">
+            <input type="submit" value="Submit" class="button-color">
         </form>
 
           <form id="password-change">
@@ -126,10 +128,10 @@
               <legend id="change-pw-legend">Change Password</legend>
               <p id="change-alert"></p>
               <p id="old">Old Password</p>
-              <input type="password" placeholder="Old password" name="passwords[old]">
+              <input type="password" placeholder="Old password" name="passwords[old]" class="button-color">
               <p id="new">New Password</p>
-              <input type="password" placeholder="New password" name="passwords[new]">
-              <input type='submit' value="Submit">
+              <input type="password" placeholder="New password" name="passwords[new]" class="button-color">
+              <input type='submit' value="Submit" class="button-color">
             </fieldset>
           </form>
           <h2 id="number-message"></h2>
@@ -147,7 +149,8 @@
         </div>
       </div>
       <footer id='footer'>
-              <p id="footer-text">A Game By Patricia Antlitz</p>
+              <p id="footer-text">A Game By <a href="https://www.pantlitz.dev/" target="_blank">Patricia Antlitz</a> &copy; Copyright 2020</p>
+
       </footer>
     </body>
 </html>
