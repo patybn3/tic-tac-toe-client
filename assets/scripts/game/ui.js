@@ -37,10 +37,10 @@ const onPlugSuccess = function (response) {
   // $('.boxTwo').off('click')
 }
 
-const onPlugFail = function (response) {
-  $('#tictac').text('Please Try Again.')
-  $('#tictac').addClass('failure')
-}
+// const onPlugFail = function (response) {
+//   $('#tictac').text('Please Try Again.')
+//   $('#tictac').addClass('failure')
+// }
 
 const onGetGamesSuccess = data => {
   const gamesStarted = data.games
@@ -83,7 +83,7 @@ module.exports = {
   onPlugSuccess,
   onGetGamesSuccess,
   onGetGamesFail,
-  onPlugFail
+  // onPlugFail
   // onCurrentSuccess,
   // onCurrentFail
 }
